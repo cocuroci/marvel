@@ -24,12 +24,27 @@ extension MarvelEndpoint: TargetType {
     }
     
     var task: Task {
+        let timestamp = "\(Date().timeIntervalSince1970)"
+        let hash = "\(timestamp)\(Environment.privateKey)\(Environment.apiKey)".md5
+        
         switch self {
         case .list:
-            return Task.requestParameters(parameters: ["limit": 50, "apikey": Environment.apiKey], encoding: URLEncoding.default)
+            return Task.requestParameters(
+                parameters: [
+                    "limit": 50,
+                    "apikey": Environment.apiKey,
+                    "ts": timestamp,
+                    "hash": hash
+                ], encoding: URLEncoding.default
+            )
         case .search(let name):
             return Task.requestParameters(
-                parameters: ["nameStartsWith": name, "apikey": Environment.apiKey], encoding: URLEncoding.default
+                parameters: [
+                    "nameStartsWith": name,
+                    "apikey": Environment.apiKey,
+                    "ts": timestamp,
+                    "hash": hash
+                ], encoding: URLEncoding.default
             )
         }
     }
