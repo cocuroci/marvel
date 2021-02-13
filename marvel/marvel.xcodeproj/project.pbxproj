@@ -22,6 +22,7 @@
 		ACEAA5A225D816B900FD40C5 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5A125D816B900FD40C5 /* ViewConfiguration.swift */; };
 		ACEAA5A925D81D7100FD40C5 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5A825D81D7100FD40C5 /* Character.swift */; };
 		ACEAA5AF25D81DD200FD40C5 /* CharacterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5AE25D81DD200FD40C5 /* CharacterImage.swift */; };
+		ACEAA5B625D8490A00FD40C5 /* MarvelEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5B525D8490A00FD40C5 /* MarvelEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		ACEAA5A125D816B900FD40C5 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		ACEAA5A825D81D7100FD40C5 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		ACEAA5AE25D81DD200FD40C5 /* CharacterImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImage.swift; sourceTree = "<group>"; };
+		ACEAA5B525D8490A00FD40C5 /* MarvelEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		ACEAA53825D8070000FD40C5 /* marvel */ = {
 			isa = PBXGroup;
 			children = (
+				ACEAA5B425D848F000FD40C5 /* Networking */,
 				ACEAA5A025D816A500FD40C5 /* Protocols */,
 				ACEAA57025D8073100FD40C5 /* Start */,
 				ACEAA57525D8074300FD40C5 /* Resources */,
@@ -167,6 +170,14 @@
 				ACEAA5AE25D81DD200FD40C5 /* CharacterImage.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ACEAA5B425D848F000FD40C5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				ACEAA5B525D8490A00FD40C5 /* MarvelEndpoint.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +289,7 @@
 			files = (
 				ACEAA5A925D81D7100FD40C5 /* Character.swift in Sources */,
 				ACEAA59525D8153600FD40C5 /* ListPresenter.swift in Sources */,
+				ACEAA5B625D8490A00FD40C5 /* MarvelEndpoint.swift in Sources */,
 				ACEAA58D25D814CD00FD40C5 /* ListFactory.swift in Sources */,
 				ACEAA5AF25D81DD200FD40C5 /* CharacterImage.swift in Sources */,
 				ACEAA59925D8156700FD40C5 /* ListViewController.swift in Sources */,
