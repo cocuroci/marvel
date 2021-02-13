@@ -3,6 +3,7 @@ import UIKit
 protocol ListDisplaying: AnyObject {
     func displayCharacters(_ characters: [Character])
     func displayLoader()
+    func displayNoInternetView()
     func hideLoader()
 }
 
@@ -19,6 +20,10 @@ final class ListViewController: UIViewController, ViewConfiguration {
     }()
     
     private lazy var loaderView = LoaderView()
+    
+    private lazy var noInternetConnectionView = NoInternetConnectionView { [weak self] in
+        self?.interactor.tryAgain()
+    }
     
     init(interactor: ListInteracting) {
         self.interactor = interactor
@@ -79,6 +84,11 @@ extension ListViewController: ListDisplaying {
     
     func hideLoader() {
         loaderView.removeFromSuperview()
+    }
+    
+    func displayNoInternetView() {
+        view.addSubview(noInternetConnectionView)
+        createConstraints(view: noInternetConnectionView)
     }
 }
 

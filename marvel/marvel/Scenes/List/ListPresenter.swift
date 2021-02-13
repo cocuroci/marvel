@@ -5,6 +5,7 @@ protocol ListPresenting {
     func presentCharacters(_ characters: [Character])
     func presentLoader()
     func hideLoader()
+    func presentNoInternetView()
 }
 
 final class ListPresenter {
@@ -22,5 +23,9 @@ extension ListPresenter: ListPresenting {
     
     func hideLoader() {
         viewController?.hideLoader()
+    }
+    
+    func presentNoInternetView() {
+        viewController?.displayNoInternetView()
     }
 }

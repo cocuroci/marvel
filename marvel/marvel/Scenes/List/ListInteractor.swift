@@ -2,6 +2,7 @@ import Foundation
 
 protocol ListInteracting {
     func fetchList()
+    func tryAgain()
 }
 
 final class ListInteractor {
@@ -19,14 +20,18 @@ extension ListInteractor: ListInteracting {
         presenter.presentLoader()
         
         service.list { [weak self] result in
+            self?.presenter.hideLoader()
+            
             switch result {
             case .success(let characters):
                 self?.presenter.presentCharacters(characters)
             case .failure(let error):
                 break
             }
-            
-            self?.presenter.hideLoader()
         }
+    }
+    
+    func tryAgain() {
+        fetchList()
     }
 }
