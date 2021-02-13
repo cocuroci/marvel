@@ -5,11 +5,14 @@ protocol ListDisplaying: AnyObject {
 }
 
 final class ListViewController: UIViewController, ViewConfiguration {
-    let interactor: ListInteracting
+    private let interactor: ListInteracting
+    private var characters: [Character] = []
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         return tableView
     }()
     
@@ -44,11 +47,25 @@ final class ListViewController: UIViewController, ViewConfiguration {
     func configureViews() {
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .white
+        title = "Personagens"
     }
 }
 
 extension ListViewController: ListDisplaying {
     func displayCharacters(_ characters: [Character]) {
-        
+        self.characters = characters
+        tableView.reloadData()
+    }
+}
+
+extension ListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        characters.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = characters[indexPath.row].name
+        return cell
     }
 }

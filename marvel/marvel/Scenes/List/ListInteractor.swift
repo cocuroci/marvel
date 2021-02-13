@@ -16,10 +16,10 @@ final class ListInteractor {
 
 extension ListInteractor: ListInteracting {
     func fetchList() {
-        service.list { result in
+        service.list { [weak self] result in
             switch result {
             case .success(let characters):
-                break
+                self?.presenter.presentCharacters(characters)
             case .failure(let error):
                 break
             }

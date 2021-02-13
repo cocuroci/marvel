@@ -8,7 +8,7 @@ enum MarvelEndpoint {
 
 extension MarvelEndpoint: TargetType {
     var baseURL: URL {
-        URL(string: "https://gateway.marvel.com:443")!
+        URL(string: "https://gateway.marvel.com")!
     }
     
     var path: String {

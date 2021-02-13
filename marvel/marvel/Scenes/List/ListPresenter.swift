@@ -11,6 +11,6 @@ final class ListPresenter {
 
 extension ListPresenter: ListPresenting {
     func presentCharacters(_ characters: [Character]) {
-        
+        viewController?.displayCharacters(characters)
     }
 }
