@@ -25,6 +25,7 @@ final class ListViewController: UIViewController, ViewConfiguration {
     override func viewDidLoad() {
         super.viewDidLoad()
         buildLayout()
+        interactor.fetchList()
     }
     
     func buildViewHierarchy() {

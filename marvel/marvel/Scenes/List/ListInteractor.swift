@@ -6,16 +6,23 @@ protocol ListInteracting {
 
 final class ListInteractor {
     private let presenter: ListPresenting
+    private let service: MarvelServicing
     
-    init(presenter: ListPresenting) {
+    init(presenter: ListPresenting, service: MarvelServicing) {
         self.presenter = presenter
+        self.service = service
     }
 }
 
 extension ListInteractor: ListInteracting {
     func fetchList() {
-        presenter.presentCharacters([
-            Character(id: 123, name: "Homem-Aranha", description: nil, image: nil)
-        ])
+        service.list { result in
+            switch result {
+            case .success(let characters):
+                break
+            case .failure(let error):
+                break
+            }
+        }
     }
 }
