@@ -24,6 +24,7 @@
 		ACEAA5AF25D81DD200FD40C5 /* CharacterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5AE25D81DD200FD40C5 /* CharacterImage.swift */; };
 		ACEAA5B625D8490A00FD40C5 /* MarvelEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5B525D8490A00FD40C5 /* MarvelEndpoint.swift */; };
 		ACEAA5BC25D84BD100FD40C5 /* CharacterDataWrapperResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5BB25D84BD100FD40C5 /* CharacterDataWrapperResponse.swift */; };
+		ACEAA5C625D84F5800FD40C5 /* MarvelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5C525D84F5800FD40C5 /* MarvelService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		ACEAA5AE25D81DD200FD40C5 /* CharacterImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImage.swift; sourceTree = "<group>"; };
 		ACEAA5B525D8490A00FD40C5 /* MarvelEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEndpoint.swift; sourceTree = "<group>"; };
 		ACEAA5BB25D84BD100FD40C5 /* CharacterDataWrapperResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataWrapperResponse.swift; sourceTree = "<group>"; };
+		ACEAA5C525D84F5800FD40C5 /* MarvelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				ACEAA59425D8153600FD40C5 /* ListPresenter.swift */,
 				ACEAA59825D8156700FD40C5 /* ListViewController.swift */,
 				ACEAA59C25D815C400FD40C5 /* ListCoordinator.swift */,
+				ACEAA5C525D84F5800FD40C5 /* MarvelService.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				ACEAA59925D8156700FD40C5 /* ListViewController.swift in Sources */,
 				ACEAA59D25D815C400FD40C5 /* ListCoordinator.swift in Sources */,
 				ACEAA53A25D8070000FD40C5 /* AppDelegate.swift in Sources */,
+				ACEAA5C625D84F5800FD40C5 /* MarvelService.swift in Sources */,
 				ACEAA5A225D816B900FD40C5 /* ViewConfiguration.swift in Sources */,
 				ACEAA59125D8150300FD40C5 /* ListInteractor.swift in Sources */,
 				ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */,
