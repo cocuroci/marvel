@@ -26,9 +26,11 @@ extension MarvelEndpoint: TargetType {
     var task: Task {
         switch self {
         case .list:
-            return Task.requestParameters(parameters: ["limit": 50], encoding: URLEncoding.default)
+            return Task.requestParameters(parameters: ["limit": 50, "apikey": Environment.apiKey], encoding: URLEncoding.default)
         case .search(let name):
-            return Task.requestParameters(parameters: ["nameStartsWith": name], encoding: URLEncoding.default)
+            return Task.requestParameters(
+                parameters: ["nameStartsWith": name, "apikey": Environment.apiKey], encoding: URLEncoding.default
+            )
         }
     }
     
