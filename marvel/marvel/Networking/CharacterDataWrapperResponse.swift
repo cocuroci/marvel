@@ -5,5 +5,5 @@ struct CharacterDataWrapper: Decodable {
 }
 
 struct CharacterDataContainer: Decodable {
-    let result: [Character]?
+    let results: [Character]?
 }

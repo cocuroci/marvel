@@ -19,7 +19,7 @@ final class MarvelService {
         switch response {
         case .success(let result):
             do {
-                let arrayOfCharacters = try result.filterSuccessfulStatusCodes().map(CharacterDataContainer.self).result ?? []
+                let arrayOfCharacters = try result.filterSuccessfulStatusCodes().map(CharacterDataWrapper.self).data?.results ?? []
                 dispatchQueue.async {
                     completion(.success(arrayOfCharacters))
                 }
