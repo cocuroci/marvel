@@ -2,6 +2,8 @@ import UIKit
 
 protocol ListDisplaying: AnyObject {
     func displayCharacters(_ characters: [Character])
+    func displayLoader()
+    func hideLoader()
 }
 
 final class ListViewController: UIViewController, ViewConfiguration {
@@ -15,6 +17,8 @@ final class ListViewController: UIViewController, ViewConfiguration {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         return tableView
     }()
+    
+    private lazy var loaderView = LoaderView()
     
     init(interactor: ListInteracting) {
         self.interactor = interactor
@@ -46,8 +50,19 @@ final class ListViewController: UIViewController, ViewConfiguration {
     
     func configureViews() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         title = "Personagens"
+    }
+}
+
+private extension ListViewController {
+    func createConstraints(view: UIView) {
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor)
+        ])
     }
 }
 
@@ -55,6 +70,15 @@ extension ListViewController: ListDisplaying {
     func displayCharacters(_ characters: [Character]) {
         self.characters = characters
         tableView.reloadData()
+    }
+    
+    func displayLoader() {
+        view.addSubview(loaderView)
+        createConstraints(view: loaderView)
+    }
+    
+    func hideLoader() {
+        loaderView.removeFromSuperview()
     }
 }
 

@@ -16,6 +16,8 @@ final class ListInteractor {
 
 extension ListInteractor: ListInteracting {
     func fetchList() {
+        presenter.presentLoader()
+        
         service.list { [weak self] result in
             switch result {
             case .success(let characters):
@@ -23,6 +25,8 @@ extension ListInteractor: ListInteracting {
             case .failure(let error):
                 break
             }
+            
+            self?.presenter.hideLoader()
         }
     }
 }

@@ -27,6 +27,7 @@
 		ACEAA5C625D84F5800FD40C5 /* MarvelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5C525D84F5800FD40C5 /* MarvelService.swift */; };
 		ACEAA5CA25D856EE00FD40C5 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5C925D856EE00FD40C5 /* Environment.swift */; };
 		ACEAA5CF25D85B0800FD40C5 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5CE25D85B0800FD40C5 /* String+MD5.swift */; };
+		ACEAA5DC25D866F100FD40C5 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5DB25D866F100FD40C5 /* LoaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		ACEAA5C525D84F5800FD40C5 /* MarvelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelService.swift; sourceTree = "<group>"; };
 		ACEAA5C925D856EE00FD40C5 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		ACEAA5CE25D85B0800FD40C5 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		ACEAA5DB25D866F100FD40C5 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		ACEAA58B25D814BC00FD40C5 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				ACEAA5DA25D866DB00FD40C5 /* Views */,
 				ACEAA58C25D814CD00FD40C5 /* ListFactory.swift */,
 				ACEAA59025D8150300FD40C5 /* ListInteractor.swift */,
 				ACEAA59425D8153600FD40C5 /* ListPresenter.swift */,
@@ -198,6 +201,14 @@
 				ACEAA5CE25D85B0800FD40C5 /* String+MD5.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ACEAA5DA25D866DB00FD40C5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACEAA5DB25D866F100FD40C5 /* LoaderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +331,7 @@
 				ACEAA5C625D84F5800FD40C5 /* MarvelService.swift in Sources */,
 				ACEAA5A225D816B900FD40C5 /* ViewConfiguration.swift in Sources */,
 				ACEAA5CF25D85B0800FD40C5 /* String+MD5.swift in Sources */,
+				ACEAA5DC25D866F100FD40C5 /* LoaderView.swift in Sources */,
 				ACEAA59125D8150300FD40C5 /* ListInteractor.swift in Sources */,
 				ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */,
 			);
