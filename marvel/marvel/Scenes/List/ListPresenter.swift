@@ -6,6 +6,8 @@ protocol ListPresenting {
     func presentLoader()
     func hideLoader()
     func presentNoInternetView()
+    func presentErrorView()
+    func removeFeedbackView()
 }
 
 final class ListPresenter {
@@ -26,6 +28,14 @@ extension ListPresenter: ListPresenting {
     }
     
     func presentNoInternetView() {
-        viewController?.displayNoInternetView()
+        viewController?.displayFeedbackView(text: "Sem conexão", imageName: "wifi.slash")
+    }
+    
+    func presentErrorView() {
+        viewController?.displayFeedbackView(text: "Erro", imageName: "exclamationmark.circle")
+    }
+    
+    func removeFeedbackView() {
+        viewController?.removeFeedbackView()
     }
 }

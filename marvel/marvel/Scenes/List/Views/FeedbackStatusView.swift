@@ -1,10 +1,12 @@
 import UIKit
 
-final class NoInternetConnectionView: UIView {
+final class FeedbackStatusView: UIView {
     private let action: () -> Void
+    private let imageName: String
+    private let text: String
     
     private lazy var imageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "wifi.slash"))
+        let imageView = UIImageView(image: UIImage(systemName: imageName))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .label
         imageView.contentMode = .scaleAspectFit
@@ -13,7 +15,7 @@ final class NoInternetConnectionView: UIView {
     
     private lazy var textLabel: UILabel = {
         let label = UILabel()
-        label.text = "Sem conexão"
+        label.text = text
         return label
     }()
     
@@ -33,7 +35,9 @@ final class NoInternetConnectionView: UIView {
         return stackView
     }()
     
-    init(action: @escaping () -> Void) {
+    init(text: String, imageName: String, action: @escaping () -> Void) {
+        self.text = text
+        self.imageName = imageName
         self.action = action
         super.init(frame: .zero)
         buildLayout()
@@ -49,7 +53,7 @@ final class NoInternetConnectionView: UIView {
     }
 }
 
-extension NoInternetConnectionView: ViewConfiguration {
+extension FeedbackStatusView: ViewConfiguration {
     func buildViewHierarchy() {
         addSubview(containerView)
     }

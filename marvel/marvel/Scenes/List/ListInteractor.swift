@@ -21,7 +21,7 @@ extension ListInteractor: ListInteracting {
         
         service.list { [weak self] result in
             self?.presenter.hideLoader()
-            
+
             switch result {
             case .success(let characters):
                 self?.presenter.presentCharacters(characters)
@@ -32,6 +32,7 @@ extension ListInteractor: ListInteracting {
     }
     
     func tryAgain() {
+        presenter.removeFeedbackView()
         fetchList()
     }
 }

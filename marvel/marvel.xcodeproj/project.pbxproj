@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC3626DA25D86E4A00E27F4B /* NoInternetConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3626D925D86E4A00E27F4B /* NoInternetConnectionView.swift */; };
 		ACEAA53A25D8070000FD40C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53925D8070000FD40C5 /* AppDelegate.swift */; };
 		ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */; };
 		ACEAA54325D8070100FD40C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEAA54225D8070100FD40C5 /* Assets.xcassets */; };
@@ -29,6 +28,7 @@
 		ACEAA5CA25D856EE00FD40C5 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5C925D856EE00FD40C5 /* Environment.swift */; };
 		ACEAA5CF25D85B0800FD40C5 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5CE25D85B0800FD40C5 /* String+MD5.swift */; };
 		ACEAA5DC25D866F100FD40C5 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5DB25D866F100FD40C5 /* LoaderView.swift */; };
+		ACFBD35725D890DC00D6F851 /* FeedbackStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD35625D890DC00D6F851 /* FeedbackStatusView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AC3626D925D86E4A00E27F4B /* NoInternetConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetConnectionView.swift; sourceTree = "<group>"; };
 		ACEAA53625D8070000FD40C5 /* marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEAA53925D8070000FD40C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		ACEAA5C925D856EE00FD40C5 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		ACEAA5CE25D85B0800FD40C5 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		ACEAA5DB25D866F100FD40C5 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		ACFBD35625D890DC00D6F851 /* FeedbackStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackStatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				ACEAA5DB25D866F100FD40C5 /* LoaderView.swift */,
-				AC3626D925D86E4A00E27F4B /* NoInternetConnectionView.swift */,
+				ACFBD35625D890DC00D6F851 /* FeedbackStatusView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,7 +321,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC3626DA25D86E4A00E27F4B /* NoInternetConnectionView.swift in Sources */,
 				ACEAA5BC25D84BD100FD40C5 /* CharacterDataWrapperResponse.swift in Sources */,
 				ACEAA5A925D81D7100FD40C5 /* Character.swift in Sources */,
 				ACEAA59525D8153600FD40C5 /* ListPresenter.swift in Sources */,
@@ -336,6 +335,7 @@
 				ACEAA5A225D816B900FD40C5 /* ViewConfiguration.swift in Sources */,
 				ACEAA5CF25D85B0800FD40C5 /* String+MD5.swift in Sources */,
 				ACEAA5DC25D866F100FD40C5 /* LoaderView.swift in Sources */,
+				ACFBD35725D890DC00D6F851 /* FeedbackStatusView.swift in Sources */,
 				ACEAA59125D8150300FD40C5 /* ListInteractor.swift in Sources */,
 				ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */,
 			);

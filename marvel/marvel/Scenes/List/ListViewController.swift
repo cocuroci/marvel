@@ -3,7 +3,8 @@ import UIKit
 protocol ListDisplaying: AnyObject {
     func displayCharacters(_ characters: [Character])
     func displayLoader()
-    func displayNoInternetView()
+    func displayFeedbackView(text: String, imageName: String)
+    func removeFeedbackView()
     func hideLoader()
 }
 
@@ -21,9 +22,7 @@ final class ListViewController: UIViewController, ViewConfiguration {
     
     private lazy var loaderView = LoaderView()
     
-    private lazy var noInternetConnectionView = NoInternetConnectionView { [weak self] in
-        self?.interactor.tryAgain()
-    }
+    private var currentFeedbackView: UIView?
     
     init(interactor: ListInteracting) {
         self.interactor = interactor
@@ -86,9 +85,19 @@ extension ListViewController: ListDisplaying {
         loaderView.removeFromSuperview()
     }
     
-    func displayNoInternetView() {
-        view.addSubview(noInternetConnectionView)
-        createConstraints(view: noInternetConnectionView)
+    func displayFeedbackView(text: String, imageName: String) {
+        let feedbackView = FeedbackStatusView(text: text, imageName: imageName) { [weak self] in
+            self?.interactor.tryAgain()
+        }
+        
+        view.addSubview(feedbackView)
+        createConstraints(view: feedbackView)
+        
+        currentFeedbackView = feedbackView
+    }
+    
+    func removeFeedbackView() {
+        currentFeedbackView?.removeFromSuperview()
     }
 }
 
