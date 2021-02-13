@@ -23,6 +23,7 @@
 		ACEAA5A925D81D7100FD40C5 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5A825D81D7100FD40C5 /* Character.swift */; };
 		ACEAA5AF25D81DD200FD40C5 /* CharacterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5AE25D81DD200FD40C5 /* CharacterImage.swift */; };
 		ACEAA5B625D8490A00FD40C5 /* MarvelEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5B525D8490A00FD40C5 /* MarvelEndpoint.swift */; };
+		ACEAA5BC25D84BD100FD40C5 /* CharacterDataWrapperResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5BB25D84BD100FD40C5 /* CharacterDataWrapperResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		ACEAA5A825D81D7100FD40C5 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		ACEAA5AE25D81DD200FD40C5 /* CharacterImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImage.swift; sourceTree = "<group>"; };
 		ACEAA5B525D8490A00FD40C5 /* MarvelEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEndpoint.swift; sourceTree = "<group>"; };
+		ACEAA5BB25D84BD100FD40C5 /* CharacterDataWrapperResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDataWrapperResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				ACEAA5B525D8490A00FD40C5 /* MarvelEndpoint.swift */,
+				ACEAA5BB25D84BD100FD40C5 /* CharacterDataWrapperResponse.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACEAA5BC25D84BD100FD40C5 /* CharacterDataWrapperResponse.swift in Sources */,
 				ACEAA5A925D81D7100FD40C5 /* Character.swift in Sources */,
 				ACEAA59525D8153600FD40C5 /* ListPresenter.swift in Sources */,
 				ACEAA5B625D8490A00FD40C5 /* MarvelEndpoint.swift in Sources */,
