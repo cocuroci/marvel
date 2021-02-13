@@ -13,6 +13,15 @@ final class ListInteractor {
         self.presenter = presenter
         self.service = service
     }
+    
+    private func handleError(_ error: ApiError) {
+        switch error {
+        case .internetFailure:
+            presenter.presentNoInternetView()
+        default:
+            presenter.presentErrorView()
+        }
+    }
 }
 
 extension ListInteractor: ListInteracting {
@@ -26,7 +35,7 @@ extension ListInteractor: ListInteracting {
             case .success(let characters):
                 self?.presenter.presentCharacters(characters)
             case .failure(let error):
-                break
+                self?.handleError(error)
             }
         }
     }

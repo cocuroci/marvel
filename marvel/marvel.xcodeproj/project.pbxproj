@@ -29,6 +29,7 @@
 		ACEAA5CF25D85B0800FD40C5 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5CE25D85B0800FD40C5 /* String+MD5.swift */; };
 		ACEAA5DC25D866F100FD40C5 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5DB25D866F100FD40C5 /* LoaderView.swift */; };
 		ACFBD35725D890DC00D6F851 /* FeedbackStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD35625D890DC00D6F851 /* FeedbackStatusView.swift */; };
+		ACFBD35F25D8968500D6F851 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD35E25D8968500D6F851 /* ApiError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		ACEAA5CE25D85B0800FD40C5 /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		ACEAA5DB25D866F100FD40C5 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		ACFBD35625D890DC00D6F851 /* FeedbackStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackStatusView.swift; sourceTree = "<group>"; };
+		ACFBD35E25D8968500D6F851 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			children = (
 				ACEAA5B525D8490A00FD40C5 /* MarvelEndpoint.swift */,
 				ACEAA5BB25D84BD100FD40C5 /* CharacterDataWrapperResponse.swift */,
+				ACFBD35E25D8968500D6F851 /* ApiError.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				ACEAA59525D8153600FD40C5 /* ListPresenter.swift in Sources */,
 				ACEAA5CA25D856EE00FD40C5 /* Environment.swift in Sources */,
 				ACEAA5B625D8490A00FD40C5 /* MarvelEndpoint.swift in Sources */,
+				ACFBD35F25D8968500D6F851 /* ApiError.swift in Sources */,
 				ACEAA58D25D814CD00FD40C5 /* ListFactory.swift in Sources */,
 				ACEAA5AF25D81DD200FD40C5 /* CharacterImage.swift in Sources */,
 				ACEAA59925D8156700FD40C5 /* ListViewController.swift in Sources */,

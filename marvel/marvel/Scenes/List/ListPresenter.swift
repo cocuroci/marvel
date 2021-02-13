@@ -32,7 +32,7 @@ extension ListPresenter: ListPresenting {
     }
     
     func presentErrorView() {
-        viewController?.displayFeedbackView(text: "Erro", imageName: "exclamationmark.circle")
+        viewController?.displayFeedbackView(text: "Ops! Falha na requisição", imageName: "exclamationmark.circle")
     }
     
     func removeFeedbackView() {
