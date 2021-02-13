@@ -1,7 +1,7 @@
 import UIKit
 
-protocol ListDisplaying {
-    
+protocol ListDisplaying: AnyObject {
+    func displayCharacters(_ characters: [Character])
 }
 
 final class ListViewController: UIViewController, ViewConfiguration {
@@ -47,5 +47,7 @@ final class ListViewController: UIViewController, ViewConfiguration {
 }
 
 extension ListViewController: ListDisplaying {
-    
+    func displayCharacters(_ characters: [Character]) {
+        
+    }
 }

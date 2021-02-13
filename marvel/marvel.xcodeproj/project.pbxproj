@@ -20,6 +20,8 @@
 		ACEAA59925D8156700FD40C5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA59825D8156700FD40C5 /* ListViewController.swift */; };
 		ACEAA59D25D815C400FD40C5 /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA59C25D815C400FD40C5 /* ListCoordinator.swift */; };
 		ACEAA5A225D816B900FD40C5 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5A125D816B900FD40C5 /* ViewConfiguration.swift */; };
+		ACEAA5A925D81D7100FD40C5 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5A825D81D7100FD40C5 /* Character.swift */; };
+		ACEAA5AF25D81DD200FD40C5 /* CharacterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5AE25D81DD200FD40C5 /* CharacterImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		ACEAA59825D8156700FD40C5 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		ACEAA59C25D815C400FD40C5 /* ListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinator.swift; sourceTree = "<group>"; };
 		ACEAA5A125D816B900FD40C5 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
+		ACEAA5A825D81D7100FD40C5 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		ACEAA5AE25D81DD200FD40C5 /* CharacterImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 				ACEAA5A025D816A500FD40C5 /* Protocols */,
 				ACEAA57025D8073100FD40C5 /* Start */,
 				ACEAA57525D8074300FD40C5 /* Resources */,
+				ACEAA5A725D81D5A00FD40C5 /* Models */,
 				ACEAA58A25D8149D00FD40C5 /* Scenes */,
 			);
 			path = marvel;
@@ -153,6 +158,15 @@
 				ACEAA5A125D816B900FD40C5 /* ViewConfiguration.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		ACEAA5A725D81D5A00FD40C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ACEAA5A825D81D7100FD40C5 /* Character.swift */,
+				ACEAA5AE25D81DD200FD40C5 /* CharacterImage.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACEAA5A925D81D7100FD40C5 /* Character.swift in Sources */,
 				ACEAA59525D8153600FD40C5 /* ListPresenter.swift in Sources */,
 				ACEAA58D25D814CD00FD40C5 /* ListFactory.swift in Sources */,
+				ACEAA5AF25D81DD200FD40C5 /* CharacterImage.swift in Sources */,
 				ACEAA59925D8156700FD40C5 /* ListViewController.swift in Sources */,
 				ACEAA59D25D815C400FD40C5 /* ListCoordinator.swift in Sources */,
 				ACEAA53A25D8070000FD40C5 /* AppDelegate.swift in Sources */,
