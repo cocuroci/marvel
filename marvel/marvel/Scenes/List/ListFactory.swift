@@ -2,6 +2,6 @@ import UIKit
 
 enum ListFactory {
     static func make() -> UIViewController {
-        ListViewController()
+        ListViewController(interactor: ListInteractor())
     }
 }

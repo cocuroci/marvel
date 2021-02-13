@@ -19,6 +19,7 @@
 		ACEAA59525D8153600FD40C5 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA59425D8153600FD40C5 /* ListPresenter.swift */; };
 		ACEAA59925D8156700FD40C5 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA59825D8156700FD40C5 /* ListViewController.swift */; };
 		ACEAA59D25D815C400FD40C5 /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA59C25D815C400FD40C5 /* ListCoordinator.swift */; };
+		ACEAA5A225D816B900FD40C5 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA5A125D816B900FD40C5 /* ViewConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		ACEAA59425D8153600FD40C5 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		ACEAA59825D8156700FD40C5 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		ACEAA59C25D815C400FD40C5 /* ListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinator.swift; sourceTree = "<group>"; };
+		ACEAA5A125D816B900FD40C5 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		ACEAA53825D8070000FD40C5 /* marvel */ = {
 			isa = PBXGroup;
 			children = (
+				ACEAA5A025D816A500FD40C5 /* Protocols */,
 				ACEAA57025D8073100FD40C5 /* Start */,
 				ACEAA57525D8074300FD40C5 /* Resources */,
 				ACEAA58A25D8149D00FD40C5 /* Scenes */,
@@ -142,6 +145,14 @@
 				ACEAA59C25D815C400FD40C5 /* ListCoordinator.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		ACEAA5A025D816A500FD40C5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				ACEAA5A125D816B900FD40C5 /* ViewConfiguration.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +267,7 @@
 				ACEAA59925D8156700FD40C5 /* ListViewController.swift in Sources */,
 				ACEAA59D25D815C400FD40C5 /* ListCoordinator.swift in Sources */,
 				ACEAA53A25D8070000FD40C5 /* AppDelegate.swift in Sources */,
+				ACEAA5A225D816B900FD40C5 /* ViewConfiguration.swift in Sources */,
 				ACEAA59125D8150300FD40C5 /* ListInteractor.swift in Sources */,
 				ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */,
 			);
