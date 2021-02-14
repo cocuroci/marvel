@@ -1,6 +1,6 @@
 import Foundation
 
-struct CharacterImage: Decodable {
+struct CharacterImage: Codable {
     let path: String?
     let `extension`: String?
     
