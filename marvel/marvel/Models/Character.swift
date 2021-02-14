@@ -5,4 +5,21 @@ struct Character: Codable, Identifiable {
     let name: String?
     let description: String?
     let thumbnail: CharacterImage?
+    let isFavorite: Bool?
+    
+    init(id: Int?, name: String?, description: String?, thumbnail: CharacterImage?) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.thumbnail = thumbnail
+        self.isFavorite = false
+    }
+    
+    init(with character: Character, isFavorite: Bool) {
+        self.id = character.id
+        self.name = character.name
+        self.description = character.description
+        self.thumbnail = character.thumbnail
+        self.isFavorite = isFavorite
+    }
 }

@@ -1,8 +1,15 @@
 import UIKit
 import Kingfisher
 
+protocol CharacterCollectionViewCellDelegate: AnyObject {
+    func didTouchStar(character: Character?)
+}
+
 final class CharacterCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = String(describing: CharacterCollectionViewCell.self)
+    
+    weak var delegate: CharacterCollectionViewCellDelegate?
+    var character: Character?
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -10,6 +17,17 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
+    }()
+    
+    private lazy var starImage = UIImage(systemName: "star")
+    private lazy var starSelectedImage = UIImage(systemName: "star.fill")
+    
+    private lazy var favoriteButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
+        button.tintColor = .systemYellow
+        return button
     }()
     
     private lazy var backgroundLabelView: UIView = {
@@ -40,23 +58,36 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
     func setupCell(character: Character) {
         imageView.kf.setImage(with: character.thumbnail?.url)
         nameLabel.text = character.name
+        character.isFavorite == true ?
+            favoriteButton.setImage(starSelectedImage, for: .normal) : favoriteButton.setImage(starImage, for: .normal)
+        self.character = character
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.kf.cancelDownloadTask()
+        character = nil
+    }
+    
+    @objc
+    private func touchButton() {
+        delegate?.didTouchStar(character: character)
     }
 }
 
 extension CharacterCollectionViewCell: ViewConfiguration {
     func buildViewHierarchy() {
         contentView.addSubview(imageView)
+        contentView.addSubview(favoriteButton)
         contentView.addSubview(backgroundLabelView)
         backgroundLabelView.addSubview(nameLabel)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
+            favoriteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            favoriteButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),

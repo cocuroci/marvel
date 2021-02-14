@@ -143,6 +143,7 @@ extension ListViewController: UICollectionViewDataSource {
         ) as! CharacterCollectionViewCell
         
         cell.setupCell(character: characters[indexPath.row])
+        cell.delegate = self
         return cell
     }
 }
@@ -150,5 +151,11 @@ extension ListViewController: UICollectionViewDataSource {
 extension ListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         interactor.didSelectCharacter(with: indexPath)
+    }
+}
+
+extension ListViewController: CharacterCollectionViewCellDelegate {
+    func didTouchStar(character: Character?) {
+        interactor.didFavoriteCharacter(character: character)
     }
 }

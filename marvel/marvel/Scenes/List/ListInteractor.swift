@@ -4,16 +4,33 @@ protocol ListInteracting {
     func fetchList()
     func tryAgain()
     func didSelectCharacter(with indexPath: IndexPath)
+    func didFavoriteCharacter(character: Character?)
 }
 
 final class ListInteractor {
     private let presenter: ListPresenting
     private let service: MarvelServicing
+    private let bookmarks: BookmarksStorageProtocol
     private var characters = [Character]()
     
-    init(presenter: ListPresenting, service: MarvelServicing) {
+    init(presenter: ListPresenting, service: MarvelServicing, bookmarks: BookmarksStorageProtocol) {
         self.presenter = presenter
         self.service = service
+        self.bookmarks = bookmarks
+    }
+    
+    private func handleSuccess(_ characters: [Character]) {
+        guard characters.count > 0 else {
+            presenter.presentEmptyResultView()
+            return
+        }
+        
+        let currentCharacters = characters.map {
+            Character(with: $0, isFavorite: bookmarks.idCharacters().contains($0.id ?? 0))
+        }
+    
+        presenter.presentCharacters(currentCharacters)
+        self.characters = currentCharacters
     }
     
     private func handleError(_ error: ApiError) {
@@ -35,13 +52,7 @@ extension ListInteractor: ListInteracting {
 
             switch result {
             case .success(let characters):
-                guard characters.count > 0 else {
-                    self?.presenter.presentEmptyResultView()
-                    return
-                }
-                
-                self?.presenter.presentCharacters(characters)
-                self?.characters = characters
+                self?.handleSuccess(characters)
             case .failure(let error):
                 self?.handleError(error)
             }
@@ -60,5 +71,13 @@ extension ListInteractor: ListInteracting {
         
         let character = characters[indexPath.row]
         presenter.didNextStep(action: .detail(character: character))
+    }
+    
+    func didFavoriteCharacter(character: Character?) {
+        guard let character = character else {
+            return
+        }
+        
+        bookmarks.save(character: character)
     }
 }
