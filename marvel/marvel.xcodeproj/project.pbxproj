@@ -33,6 +33,10 @@
 		ACFBD36725D9579400D6F851 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD36625D9579400D6F851 /* CharacterCollectionViewCell.swift */; };
 		ACFBD36D25D9725600D6F851 /* ListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD36C25D9725600D6F851 /* ListInteractorTests.swift */; };
 		ACFBD37525D97B6100D6F851 /* ListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD37425D97B6100D6F851 /* ListPresenterTests.swift */; };
+		ACFBD37A25D9808F00D6F851 /* DetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD37925D9808F00D6F851 /* DetailFactory.swift */; };
+		ACFBD38025D980EC00D6F851 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD37F25D980EC00D6F851 /* DetailViewController.swift */; };
+		ACFBD38425D9813900D6F851 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD38325D9813900D6F851 /* DetailInteractor.swift */; };
+		ACFBD38825D982A300D6F851 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD38725D982A300D6F851 /* DetailPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,10 @@
 		ACFBD36625D9579400D6F851 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		ACFBD36C25D9725600D6F851 /* ListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractorTests.swift; sourceTree = "<group>"; };
 		ACFBD37425D97B6100D6F851 /* ListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenterTests.swift; sourceTree = "<group>"; };
+		ACFBD37925D9808F00D6F851 /* DetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFactory.swift; sourceTree = "<group>"; };
+		ACFBD37F25D980EC00D6F851 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		ACFBD38325D9813900D6F851 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		ACFBD38725D982A300D6F851 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				ACEAA58B25D814BC00FD40C5 /* List */,
+				ACFBD37825D9807B00D6F851 /* Detail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -240,6 +249,17 @@
 				ACFBD37425D97B6100D6F851 /* ListPresenterTests.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		ACFBD37825D9807B00D6F851 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				ACFBD37925D9808F00D6F851 /* DetailFactory.swift */,
+				ACFBD38325D9813900D6F851 /* DetailInteractor.swift */,
+				ACFBD38725D982A300D6F851 /* DetailPresenter.swift */,
+				ACFBD37F25D980EC00D6F851 /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,13 +379,17 @@
 				ACFBD35F25D8968500D6F851 /* ApiError.swift in Sources */,
 				ACEAA58D25D814CD00FD40C5 /* ListFactory.swift in Sources */,
 				ACEAA5AF25D81DD200FD40C5 /* CharacterImage.swift in Sources */,
+				ACFBD38825D982A300D6F851 /* DetailPresenter.swift in Sources */,
 				ACEAA59925D8156700FD40C5 /* ListViewController.swift in Sources */,
+				ACFBD38025D980EC00D6F851 /* DetailViewController.swift in Sources */,
 				ACEAA59D25D815C400FD40C5 /* ListCoordinator.swift in Sources */,
 				ACEAA53A25D8070000FD40C5 /* AppDelegate.swift in Sources */,
 				ACEAA5C625D84F5800FD40C5 /* MarvelService.swift in Sources */,
 				ACEAA5A225D816B900FD40C5 /* ViewConfiguration.swift in Sources */,
 				ACEAA5CF25D85B0800FD40C5 /* String+MD5.swift in Sources */,
+				ACFBD37A25D9808F00D6F851 /* DetailFactory.swift in Sources */,
 				ACEAA5DC25D866F100FD40C5 /* LoaderView.swift in Sources */,
+				ACFBD38425D9813900D6F851 /* DetailInteractor.swift in Sources */,
 				ACFBD35725D890DC00D6F851 /* FeedbackStatusView.swift in Sources */,
 				ACEAA59125D8150300FD40C5 /* ListInteractor.swift in Sources */,
 				ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */,
