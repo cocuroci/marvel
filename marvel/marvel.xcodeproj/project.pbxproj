@@ -37,6 +37,7 @@
 		ACFBD38025D980EC00D6F851 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD37F25D980EC00D6F851 /* DetailViewController.swift */; };
 		ACFBD38425D9813900D6F851 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD38325D9813900D6F851 /* DetailInteractor.swift */; };
 		ACFBD38825D982A300D6F851 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD38725D982A300D6F851 /* DetailPresenter.swift */; };
+		ACFBD38E25D99C1B00D6F851 /* ObjectSavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD38D25D99C1B00D6F851 /* ObjectSavable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		ACFBD37F25D980EC00D6F851 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		ACFBD38325D9813900D6F851 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		ACFBD38725D982A300D6F851 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		ACFBD38D25D99C1B00D6F851 /* ObjectSavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSavable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				ACEAA5A125D816B900FD40C5 /* ViewConfiguration.swift */,
+				ACFBD38D25D99C1B00D6F851 /* ObjectSavable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				ACFBD37A25D9808F00D6F851 /* DetailFactory.swift in Sources */,
 				ACEAA5DC25D866F100FD40C5 /* LoaderView.swift in Sources */,
 				ACFBD38425D9813900D6F851 /* DetailInteractor.swift in Sources */,
+				ACFBD38E25D99C1B00D6F851 /* ObjectSavable.swift in Sources */,
 				ACFBD35725D890DC00D6F851 /* FeedbackStatusView.swift in Sources */,
 				ACEAA59125D8150300FD40C5 /* ListInteractor.swift in Sources */,
 				ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */,
