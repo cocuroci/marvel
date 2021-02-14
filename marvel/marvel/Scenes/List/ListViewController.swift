@@ -32,6 +32,7 @@ final class ListViewController: UIViewController, ViewConfiguration {
             forCellWithReuseIdentifier: CharacterCollectionViewCell.reuseIdentifier
         )
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.backgroundColor = .systemBackground
         return collectionView
     }()
@@ -143,5 +144,11 @@ extension ListViewController: UICollectionViewDataSource {
         
         cell.setupCell(character: characters[indexPath.row])
         return cell
+    }
+}
+
+extension ListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        interactor.didSelectCharacter(with: indexPath)
     }
 }

@@ -3,11 +3,13 @@ import Foundation
 protocol ListInteracting {
     func fetchList()
     func tryAgain()
+    func didSelectCharacter(with indexPath: IndexPath)
 }
 
 final class ListInteractor {
     private let presenter: ListPresenting
     private let service: MarvelServicing
+    private var characters = [Character]()
     
     init(presenter: ListPresenting, service: MarvelServicing) {
         self.presenter = presenter
@@ -39,6 +41,7 @@ extension ListInteractor: ListInteracting {
                 }
                 
                 self?.presenter.presentCharacters(characters)
+                self?.characters = characters
             case .failure(let error):
                 self?.handleError(error)
             }
@@ -48,5 +51,14 @@ extension ListInteractor: ListInteracting {
     func tryAgain() {
         presenter.removeFeedbackView()
         fetchList()
+    }
+    
+    func didSelectCharacter(with indexPath: IndexPath) {
+        guard characters.indices.contains(indexPath.row) else {
+            return
+        }
+        
+        let character = characters[indexPath.row]
+        presenter.didNextStep(action: .detail(character: character))
     }
 }
