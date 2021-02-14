@@ -27,6 +27,7 @@ final class LoaderView: UIView {
         buildLayout()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
