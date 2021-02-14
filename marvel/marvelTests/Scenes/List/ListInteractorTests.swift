@@ -54,6 +54,15 @@ private final class ListPresenterSpy: ListPresenting {
     func removeFeedbackView() {
         removeFeedbackViewCount += 1
     }
+    
+    // MARK: - didNextStep
+    private(set) var didNextStepCount = 0
+    private(set) var action: ListAction?
+    
+    func didNextStep(action: ListAction) {
+        didNextStepCount += 1
+        self.action = action
+    }
 }
 
 private final class MarvelServiceMock: MarvelServicing {
@@ -143,5 +152,32 @@ final class ListInteractorTests: XCTestCase {
         XCTAssertEqual(presenterSpy.characters?.count, 1)
         XCTAssertEqual(presenterSpy.presentLoaderCount, 1)
         XCTAssertEqual(presenterSpy.hideLoaderCount, 1)
+    }
+    
+    func testDidSelectCharacter_WhenListHaveResult_ShouldDidNextStep() {
+        let character = Character(id: 1, name: "name", description: nil, thumbnail: nil)
+        serviceMock.listResult = .success([character])
+        sut.fetchList()
+        
+        sut.didSelectCharacter(with: IndexPath(item: 0, section: 0))
+        
+        XCTAssertEqual(presenterSpy.didNextStepCount, 1)
+        XCTAssertEqual(presenterSpy.action, .detail(character: character))
+    }
+    
+    func testDidSelectCharacter_WhenListIsEmpty_ShouldDoNothing() {
+        sut.didSelectCharacter(with: IndexPath(item: 0, section: 0))
+        
+        XCTAssertEqual(presenterSpy.didNextStepCount, 0)
+        XCTAssertEqual(presenterSpy.action, nil)
+    }
+}
+
+extension ListAction: Equatable {
+    public static func == (lhs: ListAction, rhs: ListAction) -> Bool {
+        switch (lhs, rhs) {
+        case (.detail(let characterLhs), .detail(let characterRhs)):
+            return characterLhs.id == characterRhs.id
+        }
     }
 }

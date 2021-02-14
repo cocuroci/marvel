@@ -55,11 +55,25 @@ private final class ListViewControllerSpy: ListDisplaying {
     }
 }
 
+final class ListCoordinatorSpy: ListCoordinating {
+    var viewController: UIViewController?
+    
+    // MARK: - perform
+    private(set) var performCount = 0
+    private(set) var action: ListAction?
+    
+    func perform(action: ListAction) {
+        performCount += 1
+        self.action = action
+    }
+}
+
 final class ListPresenterTests: XCTestCase {
+    private let coordinatorSpy = ListCoordinatorSpy()
     private let viewControllerSpy = ListViewControllerSpy()
     
     private lazy var sut: ListPresenting = {
-        let presenter = ListPresenter()
+        let presenter = ListPresenter(coordinator: coordinatorSpy)
         presenter.viewController = viewControllerSpy
         return presenter
     }()
@@ -113,5 +127,13 @@ final class ListPresenterTests: XCTestCase {
         sut.removeFeedbackView()
         
         XCTAssertEqual(viewControllerSpy.removeFeedbackViewCount, 1)
+    }
+    
+    func testDidNextStep_ShouldPassActionToCoordinator() {
+        let action: ListAction = .detail(character: Character(id: 1, name: "name", description: nil, thumbnail: nil))
+        sut.didNextStep(action: action)
+        
+        XCTAssertEqual(coordinatorSpy.performCount, 1)
+        XCTAssertEqual(coordinatorSpy.action, action)
     }
 }
