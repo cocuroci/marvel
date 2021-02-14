@@ -74,10 +74,14 @@ extension ListInteractor: ListInteracting {
     }
     
     func didFavoriteCharacter(character: Character?) {
-        guard let character = character else {
+        guard let character = character, let index = characters.firstIndex(where: { $0.id == character.id }) else {
             return
         }
         
-        bookmarks.save(character: character)
+        let currentFavoriteValue = character.isFavorite ?? false
+        currentFavoriteValue ? bookmarks.remove(character: character) : bookmarks.save(character: character)
+        characters[index] = Character(with: character, isFavorite: !currentFavoriteValue)
+        
+        presenter.presentCharacters(characters)
     }
 }
