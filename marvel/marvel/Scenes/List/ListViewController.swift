@@ -9,16 +9,38 @@ protocol ListDisplaying: AnyObject {
     func hideLoader()
 }
 
+private extension ListViewController.Layout {
+    enum Size {
+        static let sectionInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+        static let screenWidth = UIScreen.main.bounds.width
+        static let cellWidth = ((screenWidth - sectionInset.left - sectionInset.right) / 2) - (sectionInset.left / 2)
+        static let cellSize = CGSize(width: cellWidth, height: cellWidth)
+    }
+}
+
 final class ListViewController: UIViewController, ViewConfiguration {
+    fileprivate enum Layout { }
+    
     private let interactor: ListInteracting
     private var characters: [Character] = []
     
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        return tableView
+    private lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(
+            CharacterCollectionViewCell.self,
+            forCellWithReuseIdentifier: CharacterCollectionViewCell.reuseIdentifier
+        )
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .systemBackground
+        return collectionView
+    }()
+    
+    private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = Layout.Size.sectionInset
+        layout.itemSize = Layout.Size.cellSize
+        return layout
     }()
     
     private lazy var loaderView = LoaderView()
@@ -41,15 +63,15 @@ final class ListViewController: UIViewController, ViewConfiguration {
     }
     
     func buildViewHierarchy() {
-        view.addSubview(tableView)
+        view.addSubview(collectionView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
     }
     
@@ -74,7 +96,7 @@ private extension ListViewController {
 extension ListViewController: ListDisplaying {
     func displayCharacters(_ characters: [Character]) {
         self.characters = characters
-        tableView.reloadData()
+        collectionView.reloadData()
     }
     
     func displayLoader() {
@@ -93,7 +115,6 @@ extension ListViewController: ListDisplaying {
         
         view.addSubview(feedbackView)
         createConstraints(view: feedbackView)
-        
         currentFeedbackView = feedbackView
     }
     
@@ -103,20 +124,23 @@ extension ListViewController: ListDisplaying {
     
     func displayEmptyView(text: String, imageName: String) {
         let emptyView = EmptyView(text: text, imageName: imageName)
-        
         view.addSubview(emptyView)
         createConstraints(view: emptyView)
     }
 }
 
-extension ListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ListViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         characters.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = characters[indexPath.row].name
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: CharacterCollectionViewCell.reuseIdentifier,
+            for: indexPath
+        ) as! CharacterCollectionViewCell
+        
+        cell.setupCell(character: characters[indexPath.row])
         return cell
     }
 }
