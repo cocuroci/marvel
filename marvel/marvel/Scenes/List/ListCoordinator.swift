@@ -1,7 +1,7 @@
 import UIKit
 
 enum ListAction {
-    case detail(character: Character)
+    case detail(character: Character, delegate: DetailInteractorDelegate?)
 }
 
 protocol ListCoordinating {
@@ -16,8 +16,8 @@ final class ListCoordinator {
 extension ListCoordinator: ListCoordinating {
     func perform(action: ListAction) {
         switch action {
-        case .detail(let character):
-            let detailViewController = DetailFactory.make(with: character)
+        case .detail(let character, let delegate):
+            let detailViewController = DetailFactory.make(with: character, delegate: delegate)
             viewController?.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }

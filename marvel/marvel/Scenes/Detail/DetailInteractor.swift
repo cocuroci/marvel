@@ -1,6 +1,11 @@
 import Foundation
 
+protocol DetailInteractorDelegate: AnyObject {
+    func updatedFavorite()
+}
+
 protocol DetailInteracting {
+    var delegate: DetailInteractorDelegate? { get set }
     func showCharacter()
     func didFavoriteCharacter()
 }
@@ -8,10 +13,21 @@ protocol DetailInteracting {
 final class DetailInteractor {
     private var character: Character
     private let presenter: DetailPresenting
+    private let bookmarks: BookmarksStorageProtocol
+    weak var delegate: DetailInteractorDelegate?
     
-    init(character: Character, presenter: DetailPresenting) {
+    init(
+        character: Character,
+        presenter: DetailPresenting,
+        bookmarks: BookmarksStorageProtocol
+    ) {
         self.character = character
         self.presenter = presenter
+        self.bookmarks = bookmarks
+    }
+    
+    private func changeFavoriteStatus() {
+        character.isFavorite == true ? presenter.presentCharacterIsFavorite() : presenter.presentCharacterIsNotFavorite()
     }
 }
 
@@ -20,12 +36,17 @@ extension DetailInteractor: DetailInteracting {
         presenter.presentName(character.name)
         presenter.presentImage(url: character.thumbnail?.url)
         presenter.presentDescription(character.description)
-        character.isFavorite == true ? presenter.presentCharacterIsFavorite() : presenter.presentCharacterIsNotFavorite()
+        changeFavoriteStatus()
     }
     
     func didFavoriteCharacter() {
         let isFavorite = character.isFavorite ?? false
+        
+        isFavorite ? bookmarks.remove(character: character) : bookmarks.save(character: character)
         character = Character(with: character, isFavorite: !isFavorite)
-        character.isFavorite == true ? presenter.presentCharacterIsFavorite() : presenter.presentCharacterIsNotFavorite()
+        
+        changeFavoriteStatus()
+        
+        delegate?.updatedFavorite()
     }
 }

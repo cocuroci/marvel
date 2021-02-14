@@ -25,6 +25,10 @@ final class ListInteractor {
             return
         }
         
+        updateList(characters)
+    }
+    
+    private func updateList(_ characters: [Character]) {
         let currentCharacters = characters.map {
             Character(with: $0, isFavorite: bookmarks.idCharacters().contains($0.id ?? 0))
         }
@@ -70,7 +74,7 @@ extension ListInteractor: ListInteracting {
         }
         
         let character = characters[indexPath.row]
-        presenter.didNextStep(action: .detail(character: character))
+        presenter.didNextStep(action: .detail(character: character, delegate: self))
     }
     
     func didFavoriteCharacter(character: Character?) {
@@ -83,5 +87,11 @@ extension ListInteractor: ListInteracting {
         characters[index] = Character(with: character, isFavorite: !currentFavoriteValue)
         
         presenter.presentCharacters(characters)
+    }
+}
+
+extension ListInteractor: DetailInteractorDelegate {
+    func updatedFavorite() {
+        updateList(characters)
     }
 }

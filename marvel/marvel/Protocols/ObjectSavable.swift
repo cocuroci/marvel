@@ -13,6 +13,7 @@ extension UserDefaults: ObjectSavable {
         }
         
         set(data, forKey: forKey)
+        synchronize()
     }
     
     func getObject<Object>(forKey: String, withType: Object.Type) -> Object? where Object : Decodable {

@@ -13,8 +13,6 @@ enum ListFactory {
         coordinator.viewController = viewController
         presenter.viewController = viewController
         
-        debugPrint(bookmarks.getCharacters(), #function, self)
-        
         return viewController
     }
 }
