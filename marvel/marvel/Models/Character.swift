@@ -7,12 +7,12 @@ struct Character: Codable, Identifiable {
     let thumbnail: CharacterImage?
     let isFavorite: Bool?
     
-    init(id: Int?, name: String?, description: String?, thumbnail: CharacterImage?) {
+    init(id: Int?, name: String?, description: String?, thumbnail: CharacterImage?, isFavorite: Bool = false) {
         self.id = id
         self.name = name
         self.description = description
         self.thumbnail = thumbnail
-        self.isFavorite = false
+        self.isFavorite = isFavorite
     }
     
     init(with character: Character, isFavorite: Bool) {

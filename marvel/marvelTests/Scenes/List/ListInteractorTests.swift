@@ -89,12 +89,41 @@ private final class MarvelServiceMock: MarvelServicing {
     }
 }
 
+final class BookmarksSpy: BookmarksStorageProtocol {
+    // MARK: - save
+    private(set) var saveCount = 0
+    private(set) var savedCharacter: Character?
+    
+    func save(character: Character) {
+        saveCount += 1
+        savedCharacter = character
+    }
+    
+    // MARK: - remove
+    private(set) var removeCount = 0
+    private(set) var removedCharacter: Character?
+    
+    func remove(character: Character) {
+        removeCount += 1
+        removedCharacter = character
+    }
+    
+    func getCharacters() -> [Character] {
+        []
+    }
+    
+    func idCharacters() -> [Int] {
+        []
+    }
+}
+
 final class ListInteractorTests: XCTestCase {
     private let presenterSpy = ListPresenterSpy()
     private let serviceMock = MarvelServiceMock()
+    private let bookmarksSpy = BookmarksSpy()
     
     private lazy var sut: ListInteracting = {
-        let interactor = ListInteractor(presenter: presenterSpy, service: serviceMock)
+        let interactor = ListInteractor(presenter: presenterSpy, service: serviceMock, bookmarks: bookmarksSpy)
         return interactor
     }()
     
@@ -162,7 +191,7 @@ final class ListInteractorTests: XCTestCase {
         sut.didSelectCharacter(with: IndexPath(item: 0, section: 0))
         
         XCTAssertEqual(presenterSpy.didNextStepCount, 1)
-        XCTAssertEqual(presenterSpy.action, .detail(character: character))
+        XCTAssertEqual(presenterSpy.action, .detail(character: character, delegate: nil))
     }
     
     func testDidSelectCharacter_WhenListIsEmpty_ShouldDoNothing() {
@@ -171,13 +200,41 @@ final class ListInteractorTests: XCTestCase {
         XCTAssertEqual(presenterSpy.didNextStepCount, 0)
         XCTAssertEqual(presenterSpy.action, nil)
     }
+    
+    func testDidFavoriteCharacter_WhenCharacterIsNotFavorited_ShouldSaveCharacterInBookmark() {
+        let character = Character(id: 1, name: "name", description: nil, thumbnail: nil)
+        serviceMock.listResult = .success([character])
+        sut.fetchList()
+        
+        sut.didFavoriteCharacter(character: character)
+        
+        XCTAssertEqual(bookmarksSpy.saveCount, 1)
+        XCTAssertEqual(bookmarksSpy.savedCharacter, character)
+    }
+    
+    func testDidFavoriteCharacter_WhenCharacterIsFavorited_ShouldRemoveCharacterInBookmark() {
+        let character = Character(id: 1, name: "name", description: nil, thumbnail: nil, isFavorite: true)
+        serviceMock.listResult = .success([character])
+        sut.fetchList()
+        
+        sut.didFavoriteCharacter(character: character)
+        
+        XCTAssertEqual(bookmarksSpy.removeCount, 1)
+        XCTAssertEqual(bookmarksSpy.removedCharacter, character)
+    }
 }
 
 extension ListAction: Equatable {
     public static func == (lhs: ListAction, rhs: ListAction) -> Bool {
         switch (lhs, rhs) {
-        case (.detail(let characterLhs), .detail(let characterRhs)):
+        case (.detail(let characterLhs, _), .detail(let characterRhs, _)):
             return characterLhs.id == characterRhs.id
         }
+    }
+}
+
+extension Character: Equatable {
+    public static func == (lhs: Character, rhs: Character) -> Bool {
+        lhs.id == rhs.id
     }
 }

@@ -2,7 +2,7 @@ import UIKit
 import Kingfisher
 
 protocol CharacterCollectionViewCellDelegate: AnyObject {
-    func didTouchStar(character: Character?)
+    func didTouchStarButton(character: Character?)
 }
 
 final class CharacterCollectionViewCell: UICollectionViewCell {

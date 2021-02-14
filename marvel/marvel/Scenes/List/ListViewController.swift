@@ -155,7 +155,7 @@ extension ListViewController: UICollectionViewDelegate {
 }
 
 extension ListViewController: CharacterCollectionViewCellDelegate {
-    func didTouchStar(character: Character?) {
+    func didTouchStarButton(character: Character?) {
         interactor.didFavoriteCharacter(character: character)
     }
 }

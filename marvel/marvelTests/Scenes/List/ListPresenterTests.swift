@@ -130,7 +130,7 @@ final class ListPresenterTests: XCTestCase {
     }
     
     func testDidNextStep_ShouldPassActionToCoordinator() {
-        let action: ListAction = .detail(character: Character(id: 1, name: "name", description: nil, thumbnail: nil))
+        let action: ListAction = .detail(character: Character(id: 1, name: "name", description: nil, thumbnail: nil), delegate: nil)
         sut.didNextStep(action: action)
         
         XCTAssertEqual(coordinatorSpy.performCount, 1)
