@@ -1,7 +1,10 @@
 import UIKit
 
 protocol DetailDisplaying: AnyObject {
-    func displayCharacter(_ character: Character)
+    func displayName(_ name: String?)
+    func displayImage(url: URL?)
+    func displayDescription(_ description: String?)
+    func displayStarImage(_ image: UIImage?)
 }
 
 private extension DetailViewController.Layout {
@@ -59,10 +62,8 @@ final class DetailViewController: UIViewController, ViewConfiguration {
         return label
     }()
     
-    private lazy var starImage = UIImage(systemName: "star")
-    
     private lazy var starBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(customView: UIImageView(image: starImage))
+        let barButtonItem = UIBarButtonItem()
         return barButtonItem
     }()
     
@@ -127,9 +128,21 @@ final class DetailViewController: UIViewController, ViewConfiguration {
 }
 
 extension DetailViewController: DetailDisplaying {
-    func displayCharacter(_ character: Character) {
-        title = character.name
-        descriptionLabel.text = character.description
-        imageView.kf.setImage(with: character.thumbnail?.url)
+    func displayName(_ name: String?) {
+        title = name
+    }
+    
+    func displayImage(url: URL?) {
+        imageView.kf.setImage(with: url)
+    }
+    
+    func displayDescription(_ description: String?) {
+        descriptionLabel.text = description
+    }
+    
+    func displayStarImage(_ image: UIImage?) {
+        let imageView = UIImageView(image: image)
+        imageView.tintColor = .systemYellow
+        starBarButtonItem.customView = imageView
     }
 }

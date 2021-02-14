@@ -16,6 +16,9 @@ final class DetailInteractor {
 
 extension DetailInteractor: DetailInteracting {
     func showCharacter() {
-        presenter.presentCharacter(character)
+        presenter.presentName(character.name)
+        presenter.presentImage(url: character.thumbnail?.url)
+        presenter.presentDescription(character.description)
+        character.isFavorite == true ? presenter.presentCharacterIsFavorite() : presenter.presentCharacterIsNotFavorite()
     }
 }

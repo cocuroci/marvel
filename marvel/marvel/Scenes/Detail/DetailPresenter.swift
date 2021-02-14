@@ -1,8 +1,13 @@
 import Foundation
+import UIKit
 
 protocol DetailPresenting {
     var viewController: DetailDisplaying? { get set }
-    func presentCharacter(_ character: Character)
+    func presentName(_ name: String?)
+    func presentImage(url: URL?)
+    func presentDescription(_ description: String?)
+    func presentCharacterIsFavorite()
+    func presentCharacterIsNotFavorite()
 }
 
 final class DetailPresenter {
@@ -10,7 +15,23 @@ final class DetailPresenter {
 }
 
 extension DetailPresenter: DetailPresenting {
-    func presentCharacter(_ character: Character) {
-        viewController?.displayCharacter(character)
+    func presentName(_ name: String?) {
+        viewController?.displayName(name)
+    }
+    
+    func presentImage(url: URL?) {
+        viewController?.displayImage(url: url)
+    }
+    
+    func presentDescription(_ description: String?) {
+        viewController?.displayDescription(description)
+    }
+    
+    func presentCharacterIsFavorite() {
+        viewController?.displayStarImage(UIImage(systemName: "star.fill"))
+    }
+    
+    func presentCharacterIsNotFavorite() {
+        viewController?.displayStarImage(UIImage(systemName: "star"))
     }
 }
