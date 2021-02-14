@@ -39,6 +39,7 @@
 		ACFBD38825D982A300D6F851 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD38725D982A300D6F851 /* DetailPresenter.swift */; };
 		ACFBD38E25D99C1B00D6F851 /* ObjectSavable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD38D25D99C1B00D6F851 /* ObjectSavable.swift */; };
 		ACFBD39425D99FC800D6F851 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD39325D99FC800D6F851 /* LocalStorage.swift */; };
+		ACFBD39C25D9A87300D6F851 /* BookmarksStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFBD39B25D9A87300D6F851 /* BookmarksStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		ACFBD38725D982A300D6F851 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		ACFBD38D25D99C1B00D6F851 /* ObjectSavable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSavable.swift; sourceTree = "<group>"; };
 		ACFBD39325D99FC800D6F851 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		ACFBD39B25D9A87300D6F851 /* BookmarksStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				ACFBD39325D99FC800D6F851 /* LocalStorage.swift */,
+				ACFBD39B25D9A87300D6F851 /* BookmarksStorage.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				ACFBD38E25D99C1B00D6F851 /* ObjectSavable.swift in Sources */,
 				ACFBD35725D890DC00D6F851 /* FeedbackStatusView.swift in Sources */,
 				ACEAA59125D8150300FD40C5 /* ListInteractor.swift in Sources */,
+				ACFBD39C25D9A87300D6F851 /* BookmarksStorage.swift in Sources */,
 				ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */,
 				ACFBD39425D99FC800D6F851 /* LocalStorage.swift in Sources */,
 			);
