@@ -4,6 +4,13 @@ import Moya
 enum MarvelEndpoint {
     case list
     case search(name: String)
+    
+    private static let limitKey = "limit"
+    private static let apiKey = "apikey"
+    private static let timestampKey = "ts"
+    private static let hashKey = "hash"
+    private static let searchNameKey = "nameStartsWith"
+    private static let limitResult = 100
 }
 
 extension MarvelEndpoint: TargetType {
@@ -31,19 +38,19 @@ extension MarvelEndpoint: TargetType {
         case .list:
             return Task.requestParameters(
                 parameters: [
-                    "limit": 50,
-                    "apikey": Environment.apiKey,
-                    "ts": timestamp,
-                    "hash": hash
+                    MarvelEndpoint.limitKey: MarvelEndpoint.limitResult,
+                    MarvelEndpoint.apiKey: Environment.apiKey,
+                    MarvelEndpoint.timestampKey: timestamp,
+                    MarvelEndpoint.hashKey: hash
                 ], encoding: URLEncoding.default
             )
         case .search(let name):
             return Task.requestParameters(
                 parameters: [
-                    "nameStartsWith": name,
-                    "apikey": Environment.apiKey,
-                    "ts": timestamp,
-                    "hash": hash
+                    MarvelEndpoint.searchNameKey: name,
+                    MarvelEndpoint.apiKey: Environment.apiKey,
+                    MarvelEndpoint.timestampKey: timestamp,
+                    MarvelEndpoint.hashKey: hash
                 ], encoding: URLEncoding.default
             )
         }
