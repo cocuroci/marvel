@@ -62,9 +62,11 @@ final class DetailViewController: UIViewController, ViewConfiguration {
         return label
     }()
     
-    private lazy var starBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem()
-        return barButtonItem
+    private lazy var starButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .systemYellow
+        button.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
+        return button
     }()
     
     init(interactor: DetailInteracting) {
@@ -123,7 +125,11 @@ final class DetailViewController: UIViewController, ViewConfiguration {
     
     func configureViews() {
         view.backgroundColor = .systemBackground
-        navigationItem.rightBarButtonItem = starBarButtonItem
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: starButton)
+    }
+    
+    @objc private func touchButton() {
+        interactor.didFavoriteCharacter()
     }
 }
 
@@ -141,8 +147,6 @@ extension DetailViewController: DetailDisplaying {
     }
     
     func displayStarImage(_ image: UIImage?) {
-        let imageView = UIImageView(image: image)
-        imageView.tintColor = .systemYellow
-        starBarButtonItem.customView = imageView
+        starButton.setImage(image, for: .normal)
     }
 }
