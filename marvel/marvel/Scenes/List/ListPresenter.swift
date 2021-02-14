@@ -9,10 +9,16 @@ protocol ListPresenting {
     func presentErrorView()
     func presentEmptyResultView()
     func removeFeedbackView()
+    func didNextStep(action: ListAction)
 }
 
 final class ListPresenter {
+    private let coordinator: ListCoordinating
     weak var viewController: ListDisplaying?
+    
+    init(coordinator: ListCoordinating) {
+        self.coordinator = coordinator
+    }
 }
 
 extension ListPresenter: ListPresenting {
@@ -42,5 +48,9 @@ extension ListPresenter: ListPresenting {
     
     func removeFeedbackView() {
         viewController?.removeFeedbackView()
+    }
+    
+    func didNextStep(action: ListAction) {
+        coordinator.perform(action: action)
     }
 }
