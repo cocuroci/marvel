@@ -5,6 +5,7 @@ protocol ListDisplaying: AnyObject {
     func displayLoader()
     func displayFeedbackView(text: String, imageName: String)
     func removeFeedbackView()
+    func displayEmptyView(text: String, imageName: String)
     func hideLoader()
 }
 
@@ -98,6 +99,13 @@ extension ListViewController: ListDisplaying {
     
     func removeFeedbackView() {
         currentFeedbackView?.removeFromSuperview()
+    }
+    
+    func displayEmptyView(text: String, imageName: String) {
+        let emptyView = EmptyView(text: text, imageName: imageName)
+        
+        view.addSubview(emptyView)
+        createConstraints(view: emptyView)
     }
 }
 

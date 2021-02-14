@@ -33,6 +33,11 @@ extension ListInteractor: ListInteracting {
 
             switch result {
             case .success(let characters):
+                guard characters.count > 0 else {
+                    self?.presenter.presentEmptyResultView()
+                    return
+                }
+                
                 self?.presenter.presentCharacters(characters)
             case .failure(let error):
                 self?.handleError(error)

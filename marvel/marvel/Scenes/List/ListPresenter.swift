@@ -7,6 +7,7 @@ protocol ListPresenting {
     func hideLoader()
     func presentNoInternetView()
     func presentErrorView()
+    func presentEmptyResultView()
     func removeFeedbackView()
 }
 
@@ -33,6 +34,10 @@ extension ListPresenter: ListPresenting {
     
     func presentErrorView() {
         viewController?.displayFeedbackView(text: "Ops! Falha na requisição", imageName: "exclamationmark.circle")
+    }
+    
+    func presentEmptyResultView() {
+        viewController?.displayEmptyView(text: "Resultado não encontrado", imageName: "exclamationmark.circle")
     }
     
     func removeFeedbackView() {
