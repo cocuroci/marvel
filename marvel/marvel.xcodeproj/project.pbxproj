@@ -135,6 +135,22 @@
 			path = Bookmarks;
 			sourceTree = "<group>";
 		};
+		AC0C7C9F25DAA6F90006DD28 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AC0C7CA025DAA7050006DD28 /* Views */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AC0C7CA025DAA7050006DD28 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACFBD36225D8A49C00D6F851 /* EmptyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		ACEAA52D25D8070000FD40C5 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +172,7 @@
 		ACEAA53825D8070000FD40C5 /* marvel */ = {
 			isa = PBXGroup;
 			children = (
+				AC0C7C9F25DAA6F90006DD28 /* UI */,
 				ACFBD39225D99FB600D6F851 /* Storage */,
 				ACEAA5CD25D85AF400FD40C5 /* Extensions */,
 				ACEAA5B425D848F000FD40C5 /* Networking */,
@@ -262,7 +279,6 @@
 			children = (
 				ACEAA5DB25D866F100FD40C5 /* LoaderView.swift */,
 				ACFBD35625D890DC00D6F851 /* FeedbackStatusView.swift */,
-				ACFBD36225D8A49C00D6F851 /* EmptyView.swift */,
 				ACFBD36625D9579400D6F851 /* CharacterCollectionViewCell.swift */,
 			);
 			path = Views;
