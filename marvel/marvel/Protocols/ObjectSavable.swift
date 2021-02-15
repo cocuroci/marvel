@@ -6,7 +6,7 @@ protocol ObjectSavable {
 }
 
 extension UserDefaults: ObjectSavable {
-    func setObject<Object>(object: Object, forKey: String) where Object : Encodable {
+    func setObject<Object: Encodable>(object: Object, forKey: String) {
         let encoder = JSONEncoder()
         guard let data = try? encoder.encode(object) else {
             return
@@ -16,7 +16,7 @@ extension UserDefaults: ObjectSavable {
         synchronize()
     }
     
-    func getObject<Object>(forKey: String, withType: Object.Type) -> Object? where Object : Decodable {
+    func getObject<Object: Decodable>(forKey: String, withType: Object.Type) -> Object? {
         let decoder = JSONDecoder()
         guard let data = data(forKey: forKey) else {
             return nil
