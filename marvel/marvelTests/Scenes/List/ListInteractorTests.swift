@@ -199,7 +199,7 @@ final class ListInteractorTests: XCTestCase {
         sut.showBookmarks()
         
         XCTAssertEqual(presenterSpy.didNextStepCount, 1)
-        XCTAssertEqual(presenterSpy.action, .bookmarks)
+        XCTAssertEqual(presenterSpy.action, .bookmarks(delegate: nil))
     }
 }
 

@@ -98,7 +98,7 @@ extension BookmarksViewController: UICollectionViewDataSource {
 
 extension BookmarksViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        interactor.didSelectCharacter(with: indexPath)
     }
 }
 

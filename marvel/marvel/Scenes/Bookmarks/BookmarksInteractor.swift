@@ -3,6 +3,7 @@ import Foundation
 protocol BookmarksInteracting {
     var delegate: UpdatedCharacterDelegate? { get set }
     func fetchList()
+    func didSelectCharacter(with indexPath: IndexPath)
     func removeFromBookmarks(character: Character?)
 }
 
@@ -36,6 +37,15 @@ extension BookmarksInteractor: BookmarksInteracting {
         self.characters = characters
     }
     
+    func didSelectCharacter(with indexPath: IndexPath) {
+        guard characters.indices.contains(indexPath.row) else {
+            return
+        }
+        
+        let character = characters[indexPath.row]
+        presenter.didNextStep(action: .detail(character: character, delegate: self))
+    }
+    
     func removeFromBookmarks(character: Character?) {
         guard let character = character, let index = characters.firstIndex(where: { $0.id == character.id }) else {
             return
@@ -46,6 +56,14 @@ extension BookmarksInteractor: BookmarksInteracting {
         
         updateList()
         
+        delegate?.updatedFavorite()
+    }
+}
+
+extension BookmarksInteractor: UpdatedCharacterDelegate {
+    func updatedFavorite() {
+        self.characters = storage.getCharacters()
+        updateList()
         delegate?.updatedFavorite()
     }
 }

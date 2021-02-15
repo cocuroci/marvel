@@ -24,6 +24,15 @@ private final class BookmarksPresenterSpy: BookmarksPresenting {
     func clearList() {
         clearListCount += 1
     }
+    
+    // MARK: - didNextStep
+    private(set) var didNextStepCount = 0
+    private(set) var action: BookmarksAction?
+    
+    func didNextStep(action: BookmarksAction) {
+        didNextStepCount += 1
+        self.action = action
+    }
 }
 
 final class BookmarksInteractorTest: XCTestCase {
@@ -88,5 +97,26 @@ final class BookmarksInteractorTest: XCTestCase {
         XCTAssertEqual(presenterSpy.presentCharactersCount, 1)
         XCTAssertEqual(presenterSpy.presentEmptyViewCount, 1)
         XCTAssertEqual(presenterSpy.clearListCount, 1)
+    }
+    
+    func testDidSelectCharacter_ShouldDidNextStep() throws {
+        let firstCharacter = try XCTUnwrap(characters.first)
+        let storageSpy = setupStorage(with: characters)
+        let sut = setupSut(with: storageSpy)
+        sut.fetchList()
+        
+        sut.didSelectCharacter(with: IndexPath(item: 0, section: 0))
+        
+        XCTAssertEqual(presenterSpy.didNextStepCount, 1)
+        XCTAssertEqual(presenterSpy.action, .detail(character: firstCharacter, delegate: nil))
+    }
+}
+
+extension BookmarksAction: Equatable {
+    public static func == (lhs: BookmarksAction, rhs: BookmarksAction) -> Bool {
+        switch (lhs, rhs) {
+        case (.detail(let characterLhs, _), .detail(let characterRhs, _)):
+            return characterLhs.id == characterRhs.id
+        }
     }
 }

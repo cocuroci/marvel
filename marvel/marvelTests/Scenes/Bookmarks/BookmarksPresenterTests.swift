@@ -30,11 +30,25 @@ private final class BookmarksViewControllerSpy: BookmarksDisplaying {
     }
 }
 
+private final class BookmarksCoordinatorSpy: BookmarksCoordinating {
+    var viewController: UIViewController?
+    
+    // MARK: - perform
+    private(set) var performCount = 0
+    private(set) var action: BookmarksAction?
+    
+    func perform(action: BookmarksAction) {
+        performCount += 1
+        self.action = action
+    }
+}
+
 final class BookmarksPresenterTests: XCTestCase {
     private let viewControllerSpy = BookmarksViewControllerSpy()
+    private let coordinatorSpy = BookmarksCoordinatorSpy()
     
     private lazy var sut: BookmarksPresenting = {
-        let presenter = BookmarksPresenter()
+        let presenter = BookmarksPresenter(coordinator: coordinatorSpy)
         presenter.viewController = viewControllerSpy
         return presenter
     }()
@@ -60,5 +74,14 @@ final class BookmarksPresenterTests: XCTestCase {
         sut.clearList()
         
         XCTAssertEqual(viewControllerSpy.clearListCount, 1)
+    }
+    
+    func testDidNextStep_ShouldPassActionToCoordinator() {
+        let action: BookmarksAction = .detail(character: Character(id: 1, name: "name", description: nil, thumbnail: nil), delegate: nil)
+        
+        sut.didNextStep(action: action)
+        
+        XCTAssertEqual(coordinatorSpy.performCount, 1)
+        XCTAssertEqual(coordinatorSpy.action, action)
     }
 }

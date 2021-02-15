@@ -5,10 +5,16 @@ protocol BookmarksPresenting {
     func presentCharacters(_ characters: [Character])
     func presentEmptyView()
     func clearList()
+    func didNextStep(action: BookmarksAction)
 }
 
 final class BookmarksPresenter {
+    private let coordinator: BookmarksCoordinating
     weak var viewController: BookmarksDisplaying?
+    
+    init(coordinator: BookmarksCoordinating) {
+        self.coordinator = coordinator
+    }
 }
 
 extension BookmarksPresenter: BookmarksPresenting {
@@ -22,5 +28,9 @@ extension BookmarksPresenter: BookmarksPresenting {
     
     func clearList() {
         viewController?.clearList()
+    }
+    
+    func didNextStep(action: BookmarksAction) {
+        coordinator.perform(action: action)
     }
 }
