@@ -42,8 +42,8 @@ extension DetailInteractor: DetailInteracting {
     func didFavoriteCharacter() {
         let isFavorite = character.isFavorite ?? false
         
-        isFavorite ? bookmarks.remove(character: character) : bookmarks.save(character: character)
         character = Character(with: character, isFavorite: !isFavorite)
+        isFavorite ? bookmarks.remove(character: character) : bookmarks.save(character: character)
         
         changeFavoriteStatus()
         

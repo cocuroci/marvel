@@ -71,7 +71,7 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
     
     @objc
     private func touchButton() {
-        delegate?.didTouchStar(character: character)
+        delegate?.didTouchStarButton(character: character)
     }
 }
 
