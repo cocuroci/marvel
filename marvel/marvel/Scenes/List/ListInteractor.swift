@@ -29,8 +29,10 @@ final class ListInteractor {
     }
     
     private func updateList(_ characters: [Character]) {
+        let bookmarksIds = bookmarks.idCharacters()
+        
         let currentCharacters = characters.map {
-            Character(with: $0, isFavorite: bookmarks.idCharacters().contains($0.id ?? 0))
+            Character(with: $0, isFavorite: bookmarksIds.contains($0.id ?? 0))
         }
     
         presenter.presentCharacters(currentCharacters)
