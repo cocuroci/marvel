@@ -1,11 +1,7 @@
 import Foundation
 
-protocol DetailInteractorDelegate: AnyObject {
-    func updatedFavorite()
-}
-
 protocol DetailInteracting {
-    var delegate: DetailInteractorDelegate? { get set }
+    var delegate: UpdatedCharacterDelegate? { get set }
     func showCharacter()
     func didFavoriteCharacter()
 }
@@ -14,7 +10,7 @@ final class DetailInteractor {
     private var character: Character
     private let presenter: DetailPresenting
     private let bookmarks: BookmarksStorageProtocol
-    weak var delegate: DetailInteractorDelegate?
+    weak var delegate: UpdatedCharacterDelegate?
     
     init(
         character: Character,

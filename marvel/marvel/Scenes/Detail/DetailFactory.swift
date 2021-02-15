@@ -1,7 +1,7 @@
 import UIKit
 
 enum DetailFactory {
-    static func make(with character: Character, delegate: DetailInteractorDelegate? = nil) -> UIViewController {
+    static func make(with character: Character, delegate: UpdatedCharacterDelegate? = nil) -> UIViewController {
         let presenter = DetailPresenter()
         let bookmarks = BookmarksStorage()
         let interactor = DetailInteractor(character: character, presenter: presenter, bookmarks: bookmarks)

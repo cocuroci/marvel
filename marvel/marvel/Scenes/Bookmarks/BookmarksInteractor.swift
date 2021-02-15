@@ -1,6 +1,7 @@
 import Foundation
 
 protocol BookmarksInteracting {
+    var delegate: UpdatedCharacterDelegate? { get set }
     func fetchList()
     func removeFromBookmarks(character: Character?)
 }
@@ -9,6 +10,8 @@ final class BookmarksInteractor {
     private let presenter: BookmarksPresenting
     private let storage: BookmarksStorageProtocol
     private var characters = [Character]()
+    
+    weak var delegate: UpdatedCharacterDelegate?
     
     init(presenter: BookmarksPresenting, storage: BookmarksStorageProtocol) {
         self.presenter = presenter
@@ -42,5 +45,7 @@ extension BookmarksInteractor: BookmarksInteracting {
         characters.remove(at: index)
         
         updateList()
+        
+        delegate?.updatedFavorite()
     }
 }

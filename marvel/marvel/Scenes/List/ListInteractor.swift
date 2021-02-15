@@ -94,11 +94,11 @@ extension ListInteractor: ListInteracting {
     }
     
     func showBookmarks() {
-        presenter.didNextStep(action: .bookmarks)
+        presenter.didNextStep(action: .bookmarks(delegate: self))
     }
 }
 
-extension ListInteractor: DetailInteractorDelegate {
+extension ListInteractor: UpdatedCharacterDelegate {
     func updatedFavorite() {
         updateList(characters)
     }

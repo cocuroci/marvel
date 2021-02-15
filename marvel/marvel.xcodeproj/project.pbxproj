@@ -15,6 +15,7 @@
 		AC0C7CAF25DAB67F0006DD28 /* BookmarksPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7CAE25DAB67F0006DD28 /* BookmarksPresenterTests.swift */; };
 		AC0C7CB325DAECF60006DD28 /* CharacterCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7CB225DAECF60006DD28 /* CharacterCollectionViewLayout.swift */; };
 		AC0C7CB725DAF3800006DD28 /* CharacterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7CB625DAF3800006DD28 /* CharacterCollectionView.swift */; };
+		AC0C7CBB25DAF61D0006DD28 /* UpdatedCharacterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7CBA25DAF61D0006DD28 /* UpdatedCharacterDelegate.swift */; };
 		ACEAA53A25D8070000FD40C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53925D8070000FD40C5 /* AppDelegate.swift */; };
 		ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */; };
 		ACEAA54325D8070100FD40C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEAA54225D8070100FD40C5 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		AC0C7CAE25DAB67F0006DD28 /* BookmarksPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksPresenterTests.swift; sourceTree = "<group>"; };
 		AC0C7CB225DAECF60006DD28 /* CharacterCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewLayout.swift; sourceTree = "<group>"; };
 		AC0C7CB625DAF3800006DD28 /* CharacterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionView.swift; sourceTree = "<group>"; };
+		AC0C7CBA25DAF61D0006DD28 /* UpdatedCharacterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatedCharacterDelegate.swift; sourceTree = "<group>"; };
 		ACEAA53625D8070000FD40C5 /* marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEAA53925D8070000FD40C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			children = (
 				ACEAA5A125D816B900FD40C5 /* ViewConfiguration.swift */,
 				ACFBD38D25D99C1B00D6F851 /* ObjectSavable.swift */,
+				AC0C7CBA25DAF61D0006DD28 /* UpdatedCharacterDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				ACFBD38E25D99C1B00D6F851 /* ObjectSavable.swift in Sources */,
 				ACFBD35725D890DC00D6F851 /* FeedbackStatusView.swift in Sources */,
 				ACEAA59125D8150300FD40C5 /* ListInteractor.swift in Sources */,
+				AC0C7CBB25DAF61D0006DD28 /* UpdatedCharacterDelegate.swift in Sources */,
 				ACFBD39C25D9A87300D6F851 /* BookmarksStorage.swift in Sources */,
 				ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */,
 				ACFBD39425D99FC800D6F851 /* LocalStorage.swift in Sources */,

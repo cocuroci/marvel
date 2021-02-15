@@ -1,8 +1,8 @@
 import UIKit
 
 enum ListAction {
-    case detail(character: Character, delegate: DetailInteractorDelegate?)
-    case bookmarks
+    case detail(character: Character, delegate: UpdatedCharacterDelegate?)
+    case bookmarks(delegate: UpdatedCharacterDelegate?)
 }
 
 protocol ListCoordinating {
@@ -17,11 +17,11 @@ final class ListCoordinator {
 extension ListCoordinator: ListCoordinating {
     func perform(action: ListAction) {
         switch action {
-        case .detail(let character, let delegate):
+        case let .detail(character, delegate):
             let detailViewController = DetailFactory.make(with: character, delegate: delegate)
             viewController?.navigationController?.pushViewController(detailViewController, animated: true)
-        case .bookmarks:
-            let bookmarksViewController = BookmarksFactory.make()
+        case .bookmarks(let delegate):
+            let bookmarksViewController = BookmarksFactory.make(delegate: delegate)
             viewController?.navigationController?.pushViewController(bookmarksViewController, animated: true)
         }
     }
