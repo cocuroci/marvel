@@ -18,7 +18,7 @@ private extension BookmarksViewController.Layout {
 final class BookmarksViewController: UIViewController, ViewConfiguration {
     fileprivate enum Layout { }
     
-    private let interactor: BooksmarkInteracting
+    private let interactor: BookmarksInteracting
     private var characters: [Character] = []
     
     private lazy var collectionView: UICollectionView = {
@@ -41,7 +41,7 @@ final class BookmarksViewController: UIViewController, ViewConfiguration {
         return layout
     }()
     
-    init(interactor: BooksmarkInteracting) {
+    init(interactor: BookmarksInteracting) {
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }

@@ -1,6 +1,6 @@
 import Foundation
 
-protocol BooksmarkInteracting {
+protocol BookmarksInteracting {
     func fetchList()
     func removeFromBookmarks(character: Character?)
 }
@@ -26,7 +26,7 @@ final class BookmarksInteractor {
     }
 }
 
-extension BookmarksInteractor: BooksmarkInteracting {
+extension BookmarksInteractor: BookmarksInteracting {
     func fetchList() {
         let characters = storage.getCharacters()
         characters.isEmpty ? presenter.presentEmptyView() : presenter.presentCharacters(characters)

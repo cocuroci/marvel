@@ -11,6 +11,7 @@
 		AC0C7C8F25DA9C500006DD28 /* BookmarksFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7C8E25DA9C500006DD28 /* BookmarksFactory.swift */; };
 		AC0C7C9325DA9C920006DD28 /* BookmarksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7C9225DA9C920006DD28 /* BookmarksInteractor.swift */; };
 		AC0C7C9925DA9D890006DD28 /* BookmarksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7C9825DA9D890006DD28 /* BookmarksPresenter.swift */; };
+		AC0C7CA725DAACE90006DD28 /* BookmarksInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7CA625DAACE90006DD28 /* BookmarksInteractorTest.swift */; };
 		ACEAA53A25D8070000FD40C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53925D8070000FD40C5 /* AppDelegate.swift */; };
 		ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */; };
 		ACEAA54325D8070100FD40C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEAA54225D8070100FD40C5 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		AC0C7C8E25DA9C500006DD28 /* BookmarksFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksFactory.swift; sourceTree = "<group>"; };
 		AC0C7C9225DA9C920006DD28 /* BookmarksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksInteractor.swift; sourceTree = "<group>"; };
 		AC0C7C9825DA9D890006DD28 /* BookmarksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksPresenter.swift; sourceTree = "<group>"; };
+		AC0C7CA625DAACE90006DD28 /* BookmarksInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksInteractorTest.swift; sourceTree = "<group>"; };
 		ACEAA53625D8070000FD40C5 /* marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEAA53925D8070000FD40C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 				ACFBD36225D8A49C00D6F851 /* EmptyView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AC0C7CA525DAACCD0006DD28 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				AC0C7CA625DAACE90006DD28 /* BookmarksInteractorTest.swift */,
+			);
+			path = Bookmarks;
 			sourceTree = "<group>";
 		};
 		ACEAA52D25D8070000FD40C5 = {
@@ -290,6 +300,7 @@
 				ACFBD3A625D9EA4300D6F851 /* Spy */,
 				ACFBD36B25D9723C00D6F851 /* List */,
 				ACFBD39F25D9E90C00D6F851 /* Detail */,
+				AC0C7CA525DAACCD0006DD28 /* Bookmarks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -489,6 +500,7 @@
 				ACFBD36D25D9725600D6F851 /* ListInteractorTests.swift in Sources */,
 				ACFBD3A825D9EA5300D6F851 /* BookmarksSpy.swift in Sources */,
 				ACFBD3AE25D9F19B00D6F851 /* DetailPresenterTests.swift in Sources */,
+				AC0C7CA725DAACE90006DD28 /* BookmarksInteractorTest.swift in Sources */,
 				ACFBD3A125D9E92800D6F851 /* DetailInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
