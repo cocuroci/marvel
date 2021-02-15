@@ -92,10 +92,10 @@ private final class MarvelServiceMock: MarvelServicing {
 final class ListInteractorTests: XCTestCase {
     private let presenterSpy = ListPresenterSpy()
     private let serviceMock = MarvelServiceMock()
-    private let bookmarksSpy = BookmarksSpy()
+    private let storageSpy = BookmarksStorageSpy()
     
     private lazy var sut: ListInteracting = {
-        let interactor = ListInteractor(presenter: presenterSpy, service: serviceMock, bookmarks: bookmarksSpy)
+        let interactor = ListInteractor(presenter: presenterSpy, service: serviceMock, bookmarks: storageSpy)
         return interactor
     }()
     
@@ -180,8 +180,8 @@ final class ListInteractorTests: XCTestCase {
         
         sut.didFavoriteCharacter(character: character)
         
-        XCTAssertEqual(bookmarksSpy.saveCount, 1)
-        XCTAssertEqual(bookmarksSpy.savedCharacter, character)
+        XCTAssertEqual(storageSpy.saveCount, 1)
+        XCTAssertEqual(storageSpy.savedCharacter, character)
     }
     
     func testDidFavoriteCharacter_WhenCharacterIsFavorited_ShouldRemoveCharacterInBookmark() {
@@ -191,8 +191,8 @@ final class ListInteractorTests: XCTestCase {
         
         sut.didFavoriteCharacter(character: character)
         
-        XCTAssertEqual(bookmarksSpy.removeCount, 1)
-        XCTAssertEqual(bookmarksSpy.removedCharacter, character)
+        XCTAssertEqual(storageSpy.removeCount, 1)
+        XCTAssertEqual(storageSpy.removedCharacter, character)
     }
     
     func testShowBookmarks_ShouldDidNextStep() {

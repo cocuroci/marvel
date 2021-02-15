@@ -48,12 +48,12 @@ private final class DetailPresenterSpy: DetailPresenting {
 
 final class DetailInteractorTests: XCTestCase {
     private let presenterSpy = DetailPresenterSpy()
-    private let bookmarksSpy = BookmarksSpy()
+    private let storageSpy = BookmarksStorageSpy()
     
     func setupSut(characterIsFavorite: Bool = false) -> DetailInteracting {
         let thumbnail = CharacterImage(path: "http://i.img.br/123", extension: "jpg")
         let character = Character(id: 1, name: "name", description: "description", thumbnail: thumbnail, isFavorite: characterIsFavorite)
-        let interactor = DetailInteractor(character: character, presenter: presenterSpy, bookmarks: bookmarksSpy)
+        let interactor = DetailInteractor(character: character, presenter: presenterSpy, bookmarks: storageSpy)
         return interactor
     }
     
@@ -90,8 +90,8 @@ final class DetailInteractorTests: XCTestCase {
         
         sut.didFavoriteCharacter()
         
-        XCTAssertEqual(bookmarksSpy.saveCount, 1)
-        XCTAssertEqual(bookmarksSpy.savedCharacter?.isFavorite, true)
+        XCTAssertEqual(storageSpy.saveCount, 1)
+        XCTAssertEqual(storageSpy.savedCharacter?.isFavorite, true)
         XCTAssertEqual(presenterSpy.presentCharacterIsFavoriteCount, 1)
     }
     
@@ -100,8 +100,8 @@ final class DetailInteractorTests: XCTestCase {
         
         sut.didFavoriteCharacter()
         
-        XCTAssertEqual(bookmarksSpy.removeCount, 1)
-        XCTAssertEqual(bookmarksSpy.removedCharacter?.isFavorite, false)
+        XCTAssertEqual(storageSpy.removeCount, 1)
+        XCTAssertEqual(storageSpy.removedCharacter?.isFavorite, false)
         XCTAssertEqual(presenterSpy.presentCharacterIsNotFavoriteCount, 1)
     }
 }

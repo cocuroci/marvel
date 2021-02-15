@@ -38,8 +38,8 @@ final class BookmarksInteractorTest: XCTestCase {
         return interactor
     }
     
-    func setupStorage(with characters: [Character] = []) -> BookmarksSpy {
-        BookmarksSpy(characters: characters)
+    func setupStorage(with characters: [Character] = []) -> BookmarksStorageSpy {
+        BookmarksStorageSpy(characters: characters)
     }
     
     func testFetchList_WhenBookmarksIsEmpty_ShouldPresentEmptyView() {
