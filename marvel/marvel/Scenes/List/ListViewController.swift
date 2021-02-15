@@ -44,6 +44,14 @@ final class ListViewController: UIViewController, ViewConfiguration {
         return layout
     }()
     
+    private lazy var starButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .systemYellow
+        button.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        button.addTarget(self, action: #selector(touchStarButton), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var loaderView = LoaderView()
     
     private var currentFeedbackView: UIView?
@@ -79,12 +87,18 @@ final class ListViewController: UIViewController, ViewConfiguration {
     
     func configureViews() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: starButton)
         view.backgroundColor = .systemBackground
         title = "Personagens"
     }
 }
 
 private extension ListViewController {
+    @objc
+    private func touchStarButton() {
+        interactor.showBookmarks()
+    }
+    
     func createConstraints(view: UIView) {
         NSLayoutConstraint.activate([
             view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),

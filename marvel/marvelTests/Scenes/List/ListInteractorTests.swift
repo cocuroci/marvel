@@ -194,6 +194,13 @@ final class ListInteractorTests: XCTestCase {
         XCTAssertEqual(bookmarksSpy.removeCount, 1)
         XCTAssertEqual(bookmarksSpy.removedCharacter, character)
     }
+    
+    func testShowBookmarks_ShouldDidNextStep() {
+        sut.showBookmarks()
+        
+        XCTAssertEqual(presenterSpy.didNextStepCount, 1)
+        XCTAssertEqual(presenterSpy.action, .bookmarks)
+    }
 }
 
 extension ListAction: Equatable {
@@ -201,6 +208,10 @@ extension ListAction: Equatable {
         switch (lhs, rhs) {
         case (.detail(let characterLhs, _), .detail(let characterRhs, _)):
             return characterLhs.id == characterRhs.id
+        case (.bookmarks, .bookmarks):
+            return true
+        default:
+            return false
         }
     }
 }

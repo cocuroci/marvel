@@ -5,6 +5,7 @@ protocol ListInteracting {
     func tryAgain()
     func didSelectCharacter(with indexPath: IndexPath)
     func didFavoriteCharacter(character: Character?)
+    func showBookmarks()
 }
 
 final class ListInteractor {
@@ -90,6 +91,10 @@ extension ListInteractor: ListInteracting {
         currentFavoriteValue ? bookmarks.remove(character: updatedCharacter) : bookmarks.save(character: updatedCharacter)
         
         presenter.presentCharacters(characters)
+    }
+    
+    func showBookmarks() {
+        presenter.didNextStep(action: .bookmarks)
     }
 }
 

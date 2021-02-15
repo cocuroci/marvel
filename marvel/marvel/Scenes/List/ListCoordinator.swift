@@ -2,6 +2,7 @@ import UIKit
 
 enum ListAction {
     case detail(character: Character, delegate: DetailInteractorDelegate?)
+    case bookmarks
 }
 
 protocol ListCoordinating {
@@ -19,6 +20,9 @@ extension ListCoordinator: ListCoordinating {
         case .detail(let character, let delegate):
             let detailViewController = DetailFactory.make(with: character, delegate: delegate)
             viewController?.navigationController?.pushViewController(detailViewController, animated: true)
+        case .bookmarks:
+            let bookmarksViewController = BookmarksFactory.make()
+            viewController?.navigationController?.pushViewController(bookmarksViewController, animated: true)
         }
     }
 }
