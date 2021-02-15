@@ -85,8 +85,9 @@ extension ListInteractor: ListInteracting {
         }
         
         let currentFavoriteValue = character.isFavorite ?? false
-        characters[index] = Character(with: character, isFavorite: !currentFavoriteValue)
-        currentFavoriteValue ? bookmarks.remove(character: character) : bookmarks.save(character: character)
+        let updatedCharacter = Character(with: character, isFavorite: !currentFavoriteValue)
+        characters[index] = updatedCharacter
+        currentFavoriteValue ? bookmarks.remove(character: updatedCharacter) : bookmarks.save(character: updatedCharacter)
         
         presenter.presentCharacters(characters)
     }

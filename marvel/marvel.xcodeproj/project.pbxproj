@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC0C7C8B25DA9A0D0006DD28 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7C8A25DA9A0D0006DD28 /* BookmarksViewController.swift */; };
+		AC0C7C8F25DA9C500006DD28 /* BookmarksFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7C8E25DA9C500006DD28 /* BookmarksFactory.swift */; };
+		AC0C7C9325DA9C920006DD28 /* BookmarksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7C9225DA9C920006DD28 /* BookmarksInteractor.swift */; };
+		AC0C7C9925DA9D890006DD28 /* BookmarksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7C9825DA9D890006DD28 /* BookmarksPresenter.swift */; };
 		ACEAA53A25D8070000FD40C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53925D8070000FD40C5 /* AppDelegate.swift */; };
 		ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */; };
 		ACEAA54325D8070100FD40C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEAA54225D8070100FD40C5 /* Assets.xcassets */; };
@@ -56,6 +60,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC0C7C8A25DA9A0D0006DD28 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		AC0C7C8E25DA9C500006DD28 /* BookmarksFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksFactory.swift; sourceTree = "<group>"; };
+		AC0C7C9225DA9C920006DD28 /* BookmarksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksInteractor.swift; sourceTree = "<group>"; };
+		AC0C7C9825DA9D890006DD28 /* BookmarksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksPresenter.swift; sourceTree = "<group>"; };
 		ACEAA53625D8070000FD40C5 /* marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEAA53925D8070000FD40C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +124,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC0C7C8925DA99500006DD28 /* Bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				AC0C7C8E25DA9C500006DD28 /* BookmarksFactory.swift */,
+				AC0C7C9225DA9C920006DD28 /* BookmarksInteractor.swift */,
+				AC0C7C9825DA9D890006DD28 /* BookmarksPresenter.swift */,
+				AC0C7C8A25DA9A0D0006DD28 /* BookmarksViewController.swift */,
+			);
+			path = Bookmarks;
+			sourceTree = "<group>";
+		};
 		ACEAA52D25D8070000FD40C5 = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +200,7 @@
 		ACEAA58A25D8149D00FD40C5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				AC0C7C8925DA99500006DD28 /* Bookmarks */,
 				ACEAA58B25D814BC00FD40C5 /* List */,
 				ACFBD37825D9807B00D6F851 /* Detail */,
 			);
@@ -411,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC0C7C8B25DA9A0D0006DD28 /* BookmarksViewController.swift in Sources */,
 				ACFBD36725D9579400D6F851 /* CharacterCollectionViewCell.swift in Sources */,
 				ACEAA5BC25D84BD100FD40C5 /* CharacterDataWrapperResponse.swift in Sources */,
 				ACEAA5A925D81D7100FD40C5 /* Character.swift in Sources */,
@@ -418,6 +439,7 @@
 				ACEAA5CA25D856EE00FD40C5 /* Environment.swift in Sources */,
 				ACEAA5B625D8490A00FD40C5 /* MarvelEndpoint.swift in Sources */,
 				ACFBD36325D8A49C00D6F851 /* EmptyView.swift in Sources */,
+				AC0C7C9925DA9D890006DD28 /* BookmarksPresenter.swift in Sources */,
 				ACFBD35F25D8968500D6F851 /* ApiError.swift in Sources */,
 				ACEAA58D25D814CD00FD40C5 /* ListFactory.swift in Sources */,
 				ACEAA5AF25D81DD200FD40C5 /* CharacterImage.swift in Sources */,
@@ -432,6 +454,8 @@
 				ACFBD37A25D9808F00D6F851 /* DetailFactory.swift in Sources */,
 				ACEAA5DC25D866F100FD40C5 /* LoaderView.swift in Sources */,
 				ACFBD38425D9813900D6F851 /* DetailInteractor.swift in Sources */,
+				AC0C7C9325DA9C920006DD28 /* BookmarksInteractor.swift in Sources */,
+				AC0C7C8F25DA9C500006DD28 /* BookmarksFactory.swift in Sources */,
 				ACFBD38E25D99C1B00D6F851 /* ObjectSavable.swift in Sources */,
 				ACFBD35725D890DC00D6F851 /* FeedbackStatusView.swift in Sources */,
 				ACEAA59125D8150300FD40C5 /* ListInteractor.swift in Sources */,
