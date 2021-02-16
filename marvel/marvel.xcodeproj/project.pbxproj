@@ -17,6 +17,10 @@
 		AC0C7CB725DAF3800006DD28 /* CharacterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7CB625DAF3800006DD28 /* CharacterCollectionView.swift */; };
 		AC0C7CBB25DAF61D0006DD28 /* UpdatedCharacterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7CBA25DAF61D0006DD28 /* UpdatedCharacterDelegate.swift */; };
 		AC0C7CBF25DAF84A0006DD28 /* BookmarsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C7CBE25DAF84A0006DD28 /* BookmarsCoordinator.swift */; };
+		AC2C025325DB314B0081A726 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C025225DB314B0081A726 /* SearchViewController.swift */; };
+		AC2C025725DB34920081A726 /* SearchViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C025625DB34920081A726 /* SearchViewFactory.swift */; };
+		AC2C025B25DB35D50081A726 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C025A25DB35D50081A726 /* SearchInteractor.swift */; };
+		AC2C026125DB385D0081A726 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C026025DB385D0081A726 /* SearchPresenter.swift */; };
 		ACEAA53A25D8070000FD40C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53925D8070000FD40C5 /* AppDelegate.swift */; };
 		ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */; };
 		ACEAA54325D8070100FD40C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEAA54225D8070100FD40C5 /* Assets.xcassets */; };
@@ -76,6 +80,10 @@
 		AC0C7CB625DAF3800006DD28 /* CharacterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionView.swift; sourceTree = "<group>"; };
 		AC0C7CBA25DAF61D0006DD28 /* UpdatedCharacterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatedCharacterDelegate.swift; sourceTree = "<group>"; };
 		AC0C7CBE25DAF84A0006DD28 /* BookmarsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarsCoordinator.swift; sourceTree = "<group>"; };
+		AC2C025225DB314B0081A726 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AC2C025625DB34920081A726 /* SearchViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewFactory.swift; sourceTree = "<group>"; };
+		AC2C025A25DB35D50081A726 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		AC2C026025DB385D0081A726 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		ACEAA53625D8070000FD40C5 /* marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEAA53925D8070000FD40C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +183,17 @@
 			path = Bookmarks;
 			sourceTree = "<group>";
 		};
+		AC2C024F25DB312B0081A726 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AC2C025625DB34920081A726 /* SearchViewFactory.swift */,
+				AC2C025A25DB35D50081A726 /* SearchInteractor.swift */,
+				AC2C026025DB385D0081A726 /* SearchPresenter.swift */,
+				AC2C025225DB314B0081A726 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		ACEAA52D25D8070000FD40C5 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +260,7 @@
 		ACEAA58A25D8149D00FD40C5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				AC2C024F25DB312B0081A726 /* Search */,
 				AC0C7C8925DA99500006DD28 /* Bookmarks */,
 				ACEAA58B25D814BC00FD40C5 /* List */,
 				ACFBD37825D9807B00D6F851 /* Detail */,
@@ -475,6 +495,7 @@
 			files = (
 				AC0C7C8B25DA9A0D0006DD28 /* BookmarksViewController.swift in Sources */,
 				ACFBD36725D9579400D6F851 /* CharacterCollectionViewCell.swift in Sources */,
+				AC2C025B25DB35D50081A726 /* SearchInteractor.swift in Sources */,
 				ACEAA5BC25D84BD100FD40C5 /* CharacterDataWrapperResponse.swift in Sources */,
 				ACEAA5A925D81D7100FD40C5 /* Character.swift in Sources */,
 				ACEAA59525D8153600FD40C5 /* ListPresenter.swift in Sources */,
@@ -496,6 +517,7 @@
 				AC0C7CBF25DAF84A0006DD28 /* BookmarsCoordinator.swift in Sources */,
 				ACEAA5A225D816B900FD40C5 /* ViewConfiguration.swift in Sources */,
 				ACEAA5CF25D85B0800FD40C5 /* String+MD5.swift in Sources */,
+				AC2C025725DB34920081A726 /* SearchViewFactory.swift in Sources */,
 				ACFBD37A25D9808F00D6F851 /* DetailFactory.swift in Sources */,
 				ACEAA5DC25D866F100FD40C5 /* LoaderView.swift in Sources */,
 				ACFBD38425D9813900D6F851 /* DetailInteractor.swift in Sources */,
@@ -503,8 +525,10 @@
 				AC0C7C8F25DA9C500006DD28 /* BookmarksFactory.swift in Sources */,
 				ACFBD38E25D99C1B00D6F851 /* ObjectSavable.swift in Sources */,
 				ACFBD35725D890DC00D6F851 /* FeedbackStatusView.swift in Sources */,
+				AC2C025325DB314B0081A726 /* SearchViewController.swift in Sources */,
 				ACEAA59125D8150300FD40C5 /* ListInteractor.swift in Sources */,
 				AC0C7CBB25DAF61D0006DD28 /* UpdatedCharacterDelegate.swift in Sources */,
+				AC2C026125DB385D0081A726 /* SearchPresenter.swift in Sources */,
 				ACFBD39C25D9A87300D6F851 /* BookmarksStorage.swift in Sources */,
 				ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */,
 				ACFBD39425D99FC800D6F851 /* LocalStorage.swift in Sources */,

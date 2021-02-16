@@ -55,9 +55,10 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupCell(character: Character) {
+    func setupCell(character: Character, hideFavoriteButton: Bool = false) {
         imageView.kf.setImage(with: character.thumbnail?.url)
         nameLabel.text = character.name
+        favoriteButton.isHidden = hideFavoriteButton
         character.isFavorite == true ?
             favoriteButton.setImage(starSelectedImage, for: .normal) : favoriteButton.setImage(starImage, for: .normal)
         self.character = character

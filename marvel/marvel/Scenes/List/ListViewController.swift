@@ -28,6 +28,16 @@ final class ListViewController: UIViewController, ViewConfiguration {
         return button
     }()
     
+    private lazy var searchViewController = SearchFactory.make()
+    
+    private lazy var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: searchViewController)
+        searchController.showsSearchResultsController = true
+        searchController.searchBar.delegate = searchViewController
+        searchController.delegate = searchViewController
+        return searchController
+    }()
+    
     private lazy var loaderView = LoaderView()
     
     private var currentFeedbackView: UIView?
@@ -59,6 +69,7 @@ final class ListViewController: UIViewController, ViewConfiguration {
     func configureViews() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: starButton)
+        navigationItem.searchController = searchController
         view.backgroundColor = .systemBackground
         title = "Personagens"
     }
