@@ -173,6 +173,15 @@ final class ListInteractorTests: XCTestCase {
         XCTAssertEqual(presenterSpy.action, nil)
     }
     
+    func testDidSelectCharacter_ShouldDidNextStep() {
+        let character = Character(id: 1, name: "name", description: nil, thumbnail: nil)
+        
+        sut.didSelectCharacter(with: character)
+        
+        XCTAssertEqual(presenterSpy.didNextStepCount, 1)
+        XCTAssertEqual(presenterSpy.action, .detail(character: character, delegate: nil))
+    }
+    
     func testDidFavoriteCharacter_WhenCharacterIsNotFavorited_ShouldSaveCharacterInBookmark() {
         let character = Character(id: 1, name: "name", description: nil, thumbnail: nil)
         serviceMock.listResult = .success([character])
