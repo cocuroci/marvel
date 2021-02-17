@@ -1,14 +1,22 @@
 import Foundation
 
 protocol SearchInteracting {
+    var delegate: SearchDelegate? { get set }
     func search(with name: String?)
+    func didSelectCharacter(with indexPath: IndexPath)
     func didDismissSearch()
+}
+
+protocol SearchDelegate: AnyObject {
+    func didSelectedCharacter(_ character: Character)
 }
 
 final class SearchInteractor {
     private let presenter: SearchPresenting
     private let service: MarvelServicing
     private var characters = [Character]()
+    
+    weak var delegate: SearchDelegate?
     
     init(presenter: SearchPresenting, service: MarvelServicing) {
         self.presenter = presenter
@@ -27,8 +35,10 @@ final class SearchInteractor {
     
     private func handleError(_ error: ApiError) {
         switch error {
-        case .internetFailure: break
-        default: break
+        case .internetFailure:
+            presenter.presentNoInternetView()
+        default:
+            presenter.presentErrorView()
         }
     }
 }
@@ -39,7 +49,11 @@ extension SearchInteractor: SearchInteracting {
             return
         }
         
+        presenter.presentLoader()
+        
         service.search(by: searchName) { [weak self] result in
+            self?.presenter.hideLoader()
+            
             switch result {
             case .success(let result):
                 self?.handleSuccess(result)
@@ -47,6 +61,15 @@ extension SearchInteractor: SearchInteracting {
                 self?.handleError(error)
             }
         }
+    }
+    
+    func didSelectCharacter(with indexPath: IndexPath) {
+        guard characters.indices.contains(indexPath.row) else {
+            return
+        }
+        
+        let character = characters[indexPath.row]
+        delegate?.didSelectedCharacter(character)
     }
     
     func didDismissSearch() {

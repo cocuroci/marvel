@@ -4,6 +4,7 @@ protocol ListInteracting {
     func fetchList()
     func tryAgain()
     func didSelectCharacter(with indexPath: IndexPath)
+    func didSelectCharacter(with character: Character)
     func didFavoriteCharacter(character: Character?)
     func showBookmarks()
 }
@@ -48,6 +49,10 @@ final class ListInteractor {
             presenter.presentErrorView()
         }
     }
+    
+    private func showDetail(with character: Character) {
+        presenter.didNextStep(action: .detail(character: character, delegate: self))
+    }
 }
 
 extension ListInteractor: ListInteracting {
@@ -77,7 +82,11 @@ extension ListInteractor: ListInteracting {
         }
         
         let character = characters[indexPath.row]
-        presenter.didNextStep(action: .detail(character: character, delegate: self))
+        showDetail(with: character)
+    }
+    
+    func didSelectCharacter(with character: Character) {
+        showDetail(with: character)
     }
     
     func didFavoriteCharacter(character: Character?) {

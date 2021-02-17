@@ -4,6 +4,9 @@ import Kingfisher
 protocol SearchDisplaying: AnyObject {
     func displayCharacters(_ characters: [Character])
     func displayEmptyView(text: String, imageName: String)
+    func displayLoader()
+    func displayFeedbackView(text: String, imageName: String, hideActionButton: Bool)
+    func hideLoader()
     func resetView()
 }
 
@@ -17,6 +20,8 @@ final class SearchViewController: UIViewController, ViewConfiguration {
         collectionView.delegate = self
         return collectionView
     }()
+    
+    private lazy var loaderView = LoaderView()
     
     private var statusView: UIView?
     
@@ -63,13 +68,32 @@ extension SearchViewController: SearchDisplaying {
     func displayCharacters(_ characters: [Character]) {
         self.characters = characters
         collectionView.reloadData()
+        statusView?.removeFromSuperview()
     }
     
     func displayEmptyView(text: String, imageName: String) {
+        statusView?.removeFromSuperview()
         let emptyView = EmptyView(text: text, imageName: imageName)
         view.addSubview(emptyView)
         createEdgeConstraints(view: emptyView)
-        self.statusView = emptyView
+        statusView = emptyView
+    }
+    
+    func displayLoader() {
+        view.addSubview(loaderView)
+        createEdgeConstraints(view: loaderView)
+    }
+
+    func displayFeedbackView(text: String, imageName: String, hideActionButton: Bool) {
+        statusView?.removeFromSuperview()
+        let feedbackView = FeedbackStatusView(text: text, imageName: imageName, hideActionButton: true)
+        view.addSubview(feedbackView)
+        createEdgeConstraints(view: feedbackView)
+        statusView = feedbackView
+    }
+    
+    func hideLoader() {
+        loaderView.removeFromSuperview()
     }
     
     func resetView() {
@@ -105,7 +129,7 @@ extension SearchViewController: UICollectionViewDataSource {
 
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        interactor.didSelectCharacter(with: indexPath)
     }
 }
 

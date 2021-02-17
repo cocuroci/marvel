@@ -47,6 +47,7 @@ extension MarvelEndpoint: TargetType {
         case .search(let name):
             return Task.requestParameters(
                 parameters: [
+                    MarvelEndpoint.limitKey: MarvelEndpoint.limitResult,
                     MarvelEndpoint.searchNameKey: name,
                     MarvelEndpoint.apiKey: Environment.apiKey,
                     MarvelEndpoint.timestampKey: timestamp,

@@ -168,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				ACFBD36225D8A49C00D6F851 /* EmptyView.swift */,
+				ACEAA5DB25D866F100FD40C5 /* LoaderView.swift */,
+				ACFBD35625D890DC00D6F851 /* FeedbackStatusView.swift */,
 				AC0C7CB625DAF3800006DD28 /* CharacterCollectionView.swift */,
 				AC0C7CB225DAECF60006DD28 /* CharacterCollectionViewLayout.swift */,
 			);
@@ -322,8 +324,6 @@
 		ACEAA5DA25D866DB00FD40C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ACEAA5DB25D866F100FD40C5 /* LoaderView.swift */,
-				ACFBD35625D890DC00D6F851 /* FeedbackStatusView.swift */,
 				ACFBD36625D9579400D6F851 /* CharacterCollectionViewCell.swift */,
 			);
 			path = Views;

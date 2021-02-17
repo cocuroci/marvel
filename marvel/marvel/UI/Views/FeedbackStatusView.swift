@@ -1,9 +1,10 @@
 import UIKit
 
 final class FeedbackStatusView: UIView {
-    private let action: () -> Void
+    private let action: (() -> Void)?
     private let imageName: String
     private let text: String
+    private let hideActionButton: Bool
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: imageName))
@@ -23,6 +24,7 @@ final class FeedbackStatusView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Tentar novamente", for: .normal)
         button.addTarget(self, action: #selector(touchButton), for: .touchUpInside)
+        button.isHidden = hideActionButton
         return button
     }()
     
@@ -35,10 +37,11 @@ final class FeedbackStatusView: UIView {
         return stackView
     }()
     
-    init(text: String, imageName: String, action: @escaping () -> Void) {
+    init(text: String, imageName: String, hideActionButton: Bool = false, action: (() -> Void)? = nil) {
         self.text = text
         self.imageName = imageName
         self.action = action
+        self.hideActionButton = hideActionButton
         super.init(frame: .zero)
         buildLayout()
     }
@@ -50,7 +53,7 @@ final class FeedbackStatusView: UIView {
     
     @objc
     private func touchButton() {
-        action()
+        action?()
     }
 }
 

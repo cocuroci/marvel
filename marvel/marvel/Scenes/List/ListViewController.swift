@@ -28,7 +28,7 @@ final class ListViewController: UIViewController, ViewConfiguration {
         return button
     }()
     
-    private lazy var searchViewController = SearchFactory.make()
+    private lazy var searchViewController = SearchFactory.make(delegate: self)
     
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: searchViewController)
@@ -72,6 +72,7 @@ final class ListViewController: UIViewController, ViewConfiguration {
         navigationItem.searchController = searchController
         view.backgroundColor = .systemBackground
         title = "Personagens"
+        definesPresentationContext = true
     }
 }
 
@@ -155,5 +156,11 @@ extension ListViewController: UICollectionViewDelegate {
 extension ListViewController: CharacterCollectionViewCellDelegate {
     func didTouchStarButton(character: Character?) {
         interactor.didFavoriteCharacter(character: character)
+    }
+}
+
+extension ListViewController: SearchDelegate {
+    func didSelectedCharacter(_ character: Character) {
+        interactor.didSelectCharacter(with: character)
     }
 }
