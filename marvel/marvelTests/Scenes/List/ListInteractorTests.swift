@@ -65,30 +65,6 @@ private final class ListPresenterSpy: ListPresenting {
     }
 }
 
-private final class MarvelServiceMock: MarvelServicing {
-    var listResult: Result<[Character], ApiError>?
-    
-    func list(completion: @escaping (Result<[Character], ApiError>) -> Void) {
-        guard let result = listResult else {
-            XCTFail("Mocked listResult for list method is nil")
-            return
-        }
-        
-        completion(result)
-    }
-    
-    var searchResult: Result<[Character], ApiError>?
-    
-    func search(by name: String, completion: @escaping (Result<[Character], ApiError>) -> Void) {
-        guard let result = searchResult else {
-            XCTFail("Mocked searchResult for search method is nil")
-            return
-        }
-        
-        completion(result)
-    }
-}
-
 final class ListInteractorTests: XCTestCase {
     private let presenterSpy = ListPresenterSpy()
     private let serviceMock = MarvelServiceMock()
@@ -170,7 +146,7 @@ final class ListInteractorTests: XCTestCase {
         sut.didSelectCharacter(with: IndexPath(item: 0, section: 0))
         
         XCTAssertEqual(presenterSpy.didNextStepCount, 0)
-        XCTAssertEqual(presenterSpy.action, nil)
+        XCTAssertNil(presenterSpy.action)
     }
     
     func testDidSelectCharacter_ShouldDidNextStep() {

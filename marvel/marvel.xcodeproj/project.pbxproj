@@ -21,6 +21,8 @@
 		AC2C025725DB34920081A726 /* SearchViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C025625DB34920081A726 /* SearchViewFactory.swift */; };
 		AC2C025B25DB35D50081A726 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C025A25DB35D50081A726 /* SearchInteractor.swift */; };
 		AC2C026125DB385D0081A726 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C026025DB385D0081A726 /* SearchPresenter.swift */; };
+		AC2C026A25DD485D0081A726 /* SearchInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C026925DD485D0081A726 /* SearchInteractorTests.swift */; };
+		AC2C027125DD495E0081A726 /* MarvelServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C027025DD495E0081A726 /* MarvelServiceMock.swift */; };
 		ACEAA53A25D8070000FD40C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53925D8070000FD40C5 /* AppDelegate.swift */; };
 		ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */; };
 		ACEAA54325D8070100FD40C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEAA54225D8070100FD40C5 /* Assets.xcassets */; };
@@ -84,6 +86,8 @@
 		AC2C025625DB34920081A726 /* SearchViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewFactory.swift; sourceTree = "<group>"; };
 		AC2C025A25DB35D50081A726 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		AC2C026025DB385D0081A726 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		AC2C026925DD485D0081A726 /* SearchInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractorTests.swift; sourceTree = "<group>"; };
+		AC2C027025DD495E0081A726 /* MarvelServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelServiceMock.swift; sourceTree = "<group>"; };
 		ACEAA53625D8070000FD40C5 /* marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEAA53925D8070000FD40C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +198,22 @@
 				AC2C025225DB314B0081A726 /* SearchViewController.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		AC2C026825DD482C0081A726 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AC2C026925DD485D0081A726 /* SearchInteractorTests.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		AC2C026F25DD49440081A726 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				AC2C027025DD495E0081A726 /* MarvelServiceMock.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		ACEAA52D25D8070000FD40C5 = {
@@ -332,10 +352,12 @@
 		ACFBD36A25D9723800D6F851 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				AC2C026F25DD49440081A726 /* Mock */,
 				ACFBD3A625D9EA4300D6F851 /* Spy */,
 				ACFBD36B25D9723C00D6F851 /* List */,
 				ACFBD39F25D9E90C00D6F851 /* Detail */,
 				AC0C7CA525DAACCD0006DD28 /* Bookmarks */,
+				AC2C026825DD482C0081A726 /* Search */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -541,6 +563,8 @@
 			files = (
 				AC0C7CAF25DAB67F0006DD28 /* BookmarksPresenterTests.swift in Sources */,
 				ACFBD37525D97B6100D6F851 /* ListPresenterTests.swift in Sources */,
+				AC2C026A25DD485D0081A726 /* SearchInteractorTests.swift in Sources */,
+				AC2C027125DD495E0081A726 /* MarvelServiceMock.swift in Sources */,
 				ACFBD36D25D9725600D6F851 /* ListInteractorTests.swift in Sources */,
 				ACFBD3A825D9EA5300D6F851 /* BookmarksStorageSpy.swift in Sources */,
 				ACFBD3AE25D9F19B00D6F851 /* DetailPresenterTests.swift in Sources */,
