@@ -43,8 +43,7 @@ final class BookmarksInteractorTest: XCTestCase {
     ]
     
     private func setupSut(with storage: BookmarksStorageProtocol) -> BookmarksInteracting {
-        let interactor = BookmarksInteractor(presenter: presenterSpy, storage: storage)
-        return interactor
+        BookmarksInteractor(presenter: presenterSpy, storage: storage)
     }
     
     func setupStorage(with characters: [Character] = []) -> BookmarksStorageSpy {

@@ -70,10 +70,7 @@ final class ListInteractorTests: XCTestCase {
     private let serviceMock = MarvelServiceMock()
     private let storageSpy = BookmarksStorageSpy()
     
-    private lazy var sut: ListInteracting = {
-        let interactor = ListInteractor(presenter: presenterSpy, service: serviceMock, bookmarks: storageSpy)
-        return interactor
-    }()
+    private lazy var sut: ListInteracting = ListInteractor(presenter: presenterSpy, service: serviceMock, bookmarks: storageSpy)
     
     func testFetchList_WhenSuccessResponse_ShouldPresentCharacters() {
         let mocked = [Character(id: 1, name: "name", description: nil, thumbnail: nil)]
