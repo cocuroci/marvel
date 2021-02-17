@@ -23,6 +23,7 @@
 		AC2C026125DB385D0081A726 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C026025DB385D0081A726 /* SearchPresenter.swift */; };
 		AC2C026A25DD485D0081A726 /* SearchInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C026925DD485D0081A726 /* SearchInteractorTests.swift */; };
 		AC2C027125DD495E0081A726 /* MarvelServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C027025DD495E0081A726 /* MarvelServiceMock.swift */; };
+		AC2C027725DD55A10081A726 /* SearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C027625DD55A10081A726 /* SearchPresenterTests.swift */; };
 		ACEAA53A25D8070000FD40C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53925D8070000FD40C5 /* AppDelegate.swift */; };
 		ACEAA53C25D8070000FD40C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */; };
 		ACEAA54325D8070100FD40C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACEAA54225D8070100FD40C5 /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 		AC2C026025DB385D0081A726 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		AC2C026925DD485D0081A726 /* SearchInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractorTests.swift; sourceTree = "<group>"; };
 		AC2C027025DD495E0081A726 /* MarvelServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelServiceMock.swift; sourceTree = "<group>"; };
+		AC2C027625DD55A10081A726 /* SearchPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenterTests.swift; sourceTree = "<group>"; };
 		ACEAA53625D8070000FD40C5 /* marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACEAA53925D8070000FD40C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACEAA53B25D8070000FD40C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				AC2C026925DD485D0081A726 /* SearchInteractorTests.swift */,
+				AC2C027625DD55A10081A726 /* SearchPresenterTests.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				AC2C027125DD495E0081A726 /* MarvelServiceMock.swift in Sources */,
 				ACFBD36D25D9725600D6F851 /* ListInteractorTests.swift in Sources */,
 				ACFBD3A825D9EA5300D6F851 /* BookmarksStorageSpy.swift in Sources */,
+				AC2C027725DD55A10081A726 /* SearchPresenterTests.swift in Sources */,
 				ACFBD3AE25D9F19B00D6F851 /* DetailPresenterTests.swift in Sources */,
 				AC0C7CA725DAACE90006DD28 /* BookmarksInteractorTest.swift in Sources */,
 				ACFBD3A125D9E92800D6F851 /* DetailInteractorTests.swift in Sources */,
