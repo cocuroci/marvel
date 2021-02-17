@@ -18,7 +18,7 @@ Camada responsável pela lógica da funcionalidade.
 
 ### Presenter
 
-Camara responsável por transformar os dados do interactor para a view.
+Camada responsável por transformar os dados do interactor para a view.
 
 ### ViewController
 
